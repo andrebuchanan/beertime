@@ -1,0 +1,47 @@
+{
+  "Andre": {
+    "id": 0,
+    "name": "Andre",
+    "comment": "No comment",
+    "pub": true,
+    "shots": true,
+    "shout": false,
+    "showCommentField": false
+  },
+  "Jevon": {
+    "id": 1,
+    "name": "Jevon",
+    "comment": "Hello!",
+    "pub": true,
+    "shots": true,
+    "shout": false,
+    "showCommentField": false
+  },
+  "Dirk": {
+    "id": 2,
+    "name": "Dirk",
+    "comment": "",
+    "pub": false,
+    "shots": true,
+    "shout": false,
+    "showCommentField": false
+  },
+  "Tim": {
+    "id": 12,
+    "name": "Tim",
+    "comment": "Tim's comment",
+    "pub": false,
+    "shots": false,
+    "shout": false,
+    "showCommentField": false
+  },
+  "Mary-Ann": {
+    "id": 4,
+    "name": "Mary-Ann",
+    "comment": "",
+    "pub": true,
+    "shots": true,
+    "shout": false,
+    "showCommentField": false
+  }
+}

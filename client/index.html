@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" ng-app="arbapp" ng-controller="appCtrl">
+  <head>
+    <meta charset="utf-8">
+    <title>beer o'clock</title>
+    <link rel="stylesheet" href="css/app.css"/>
+  </head>
+  <body class="transition">
+
+    <div ng-show="status.loaded">
+      <ul class="columns">
+
+        <li>
+          <div class="content-pane dark">
+            <div class="heading bare">BEER TIME: {{beerDate | date:'medium'}}</div>
+            <div class="content">
+              <div class="digital-container">
+                <p>It is beer o'clock in T minus</p>
+                <span class="digital">{{beerClock | hms:'d'}}</span> d
+                <span class="digital">{{beerClock | hms:'h'}}</span> h
+                <span class="digital">{{beerClock | hms:'m'}}</span> m
+                <span class="digital">{{beerClock | hms:'s'}}</span> s
+              </div>
+              <p>{{beerClock | face}}</p>
+              <div ng-show="beerClock < 0">Beer o'clock is here! Please lift your bottom from your seat and proceed with all haste to the pub.</div>
+            </div>
+            <div ng-show="beerClock < -60">
+              <div class="heading error">WARNING!!!</div>
+              <div class="content">Your beer appointment is overdue. Proceed to the pub immediately.</div>
+            </div>
+          </div>
+
+          <div class="content-pane dark spacer">
+            <div class="heading bare">Beer Administration Panel</div>
+            <div class="content">
+              Name <input type="text" ng-model="newatt.name"> <div class="button" ng-click="add(newatt)">Add Alcoholic</div>
+            </div>
+          </div>
+
+        </li>
+
+        <li>
+          <div class="content-pane dark">
+            <div class="heading">Attendance</div>
+            <div class="content">
+              <div class="list">
+                <div class="attr name">Name</div>
+                <div class="attr">Going</div>
+                <div class="attr">Shots</div>
+                <div class="attr">My Shout</div>
+              </div>
+              <div class="list" ng-repeat="att in attendees | orderBy:'name'">
+                <div class="attr name"><span class="glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</span> {{att.name}}</div>
+                <div class="attr glyph" ng-click="att.pub = !att.pub; update(att);" ng-class="{no: !att.pub, yes: att.pub}">{{att.pub | onoff}}</div>
+                <div class="attr glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">{{att.shots | onoff}}</div>
+                <div class="attr glyph" ng-click="att.shout = !att.shout; update(att);" ng-class="{no: !att.shout, yes: att.shout}">{{att.shout | onoff}}</div>
+                <div class="attr comment" ng-show="att.showCommentField">
+                  <input class="" type="text" ng-model="att.comment">
+                  <div class="button" ng-click="att.showCommentField = false; update(att);">Save</div>
+                </div>
+              </div>
+              <p></p>
+              <div class="button" ng-show="false">Add</div>
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Show loader until status.loaded is init'd to true, at which point ng
+      will do it's thing and make the loader go away -->
+    <div class="index-loader content-pane" ng-show="!status.loaded" ng-init="status.loaded=true;" ng-animate="{show:'show',hide:'hide'}">
+      <div class="heading">Loading</div>
+      <div class="content">
+        <img class="loader" src="img/bar-loader.gif" alt="Loading...">
+        Bit slow, isn't it?
+      </div>
+    </div>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    -->
+    <script src="lib/vendor/angular/angular.js"></script>
+    <script src="lib/vendor/angular/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>
+
+    <!-- No script -->
+    <noscript>
+      <style type="text/css">.index-loader { display: none; }</style>
+      <div class="content-pane">
+        <div class="heading">Uh Oh!</div>
+        <div class="content">
+          This site requires javascript to function correctly, if at all. Javascript is pretty good these days. Turn it on! ;-)
+        </div>
+      </div>
+    </noscript>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<div class="content-pane event">
+  <div class="heading">{{arbEvent.title || 'New Event'}}</div>
+  <div class="content">
+    <ul class="columns two">
+      <li class="edit">
+        <div class="field">
+          <div class="label" ng-show="arbEvent.title">Title<span class="arrow"></span></div>
+          <input type="text" ng-model="arbEvent.title" placeholder="Title">
+        </div>
+        <div class="field">
+          <div class="label" ng-show="arbEvent.start">Start Date<span class="arrow"></div>
+          <input type="text" ng-model="arbEvent.start" placeholder="Start Date">
+        </div>
+        <div class="field">
+          <div class="label" ng-show="arbEvent.end">End Date<span class="arrow"></div>
+          <input type="text" ng-model="arbEvent.end" placeholder="End Date">
+        </div>
+        <p>The description below uses <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax. It's mainly just plain text with some embelishments.</p>
+        <textarea class="description" ng-model="arbEvent.description" placeholder="Event Description"></textarea>
+        <p>
+          <div class="button">Save</div>
+          <div class="button">Cancel</div>
+          <div class="button" ng-show="arbEvent._id">Delete</div>
+        </p>
+      </li>
+      <li>
+        <ng-include src="'partials/event-preview.html'"></ng-include>
+      </li>
+    </ul>
+  </div>
+</div>
