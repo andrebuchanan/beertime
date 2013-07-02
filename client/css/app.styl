@@ -130,6 +130,10 @@ vertical-gradient(startColor, endColor)
       top pad-t
       .button
         padding pad-t
+        &.glyph
+          font-size 1em
+          position relative
+          top -.5em
   .content
     position relative
     padding pad-l pad-s
@@ -213,7 +217,7 @@ body
   font-family Verdana,Geneva,'DejaVu Sans',sans-serif
   color content-text-color
   padding pad-l
-  font-size 2em
+  font-size 1em
   margin auto
   &.fluid
     width 80%
@@ -230,6 +234,8 @@ input[type=text],input[type=password],textarea
   padding pad-s
   background-color field-background
   color field-text-color
+hr
+  margin pad-l 0
 
 // Specific structural elements.
 
@@ -250,11 +256,15 @@ img.loader
 .heading.error
   background-color rgba(red, 0.5)
 
+// App overrides.
 .content-pane
   border 0
   overflow visible
 .content
   color #BBB !important
+.button
+  background-color rgba(primary-1, 0.66)
+
 .bevel
   box-shadow 0em 0em .1em .1em #444
   border 1px solid #444
@@ -290,6 +300,7 @@ img.loader
   background-color rgba(#222, 0.6)
   padding pad-s
   margin pad-s 0
+  position relative
   .attr
     @extends .transition
     display inline-block
@@ -308,6 +319,14 @@ img.loader
       display block
       position absolute
       background-color rgba(primary-5, 0.5)
+      z-index 9999
+      &.small
+        border-radius 6px
+        display inline-block
+        width auto
+        padding pad-t pad-l
+        left 2.5em
+        bottom 0em
     &.yes
       color primary-4
     &.no

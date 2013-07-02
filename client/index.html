@@ -31,9 +31,22 @@
           </div>
 
           <div class="content-pane dark spacer">
-            <div class="heading bare">Beer Administration Panel</div>
+            <div class="heading bare">Beer Administration Panel
+              <div class="buttons">
+                <div class="button glyph" ng-click="showAdminPanel = !showAdminPanel">e</div>
+              </div>
+            </div>
+            <div class="content" ng-show="showAdminPanel">
+              <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
+              <hr/>
+              <input type="text" ng-model="delguy.name" placeholder="Type Name to Remove"> <div class="button" ng-click="del(delguy)" ng-show="delguy">Remove</div>
+            </div>
+          </div>
+
+          <div class="content-pane dark spacer" ng-show="delMessage">
+            <div class="heading bare">Undo!</div>
             <div class="content">
-              Name <input type="text" ng-model="newatt.name"> <div class="button" ng-click="add(newatt)">Add Alcoholic</div>
+              {{delMessage}} <div class="button" ng-click="ngMessage = false; undo(delguy);">Undo</div>
             </div>
           </div>
 
@@ -41,19 +54,24 @@
 
         <li>
           <div class="content-pane dark">
-            <div class="heading">Attendance</div>
-            <div class="content">
+            <div class="heading">Attendance
+              <div class="buttons">
+                <div class="button glyph" ng-click="showAttPanel = !showAttPanel">e</div>
+              </div>
+            </div>
+            <div class="content" ng-show="showAttPanel">
               <div class="list">
                 <div class="attr name">Name</div>
                 <div class="attr">Going</div>
                 <div class="attr">Shots</div>
                 <div class="attr">My Shout</div>
               </div>
-              <div class="list" ng-repeat="att in attendees | orderBy:'name'">
+              <div class="list" ng-repeat="att in attendees | filter:{deleted:false} | orderBy:'name'">
                 <div class="attr name"><span class="glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</span> {{att.name}}</div>
                 <div class="attr glyph" ng-click="att.pub = !att.pub; update(att);" ng-class="{no: !att.pub, yes: att.pub}">{{att.pub | onoff}}</div>
                 <div class="attr glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">{{att.shots | onoff}}</div>
                 <div class="attr glyph" ng-click="att.shout = !att.shout; update(att);" ng-class="{no: !att.shout, yes: att.shout}">{{att.shout | onoff}}</div>
+                <div class="attr comment small" ng-show="att.comment">{{att.comment}}</div>
                 <div class="attr comment" ng-show="att.showCommentField">
                   <input class="" type="text" ng-model="att.comment">
                   <div class="button" ng-click="att.showCommentField = false; update(att);">Save</div>
