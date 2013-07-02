@@ -260,6 +260,8 @@ img.loader
 .content-pane
   border 0
   overflow visible
+  &.noover
+    overflow auto
 .content
   color #BBB !important
 .button
@@ -337,6 +339,15 @@ img.loader
       color #CCC
     .comment-ind.isnot
       color #777
+
+// .messages
+//   max-height 50vh
+.message
+  padding pad-s
+.message-content
+  @extends .rounded
+  background-color rgba(#BBB, 0.2)
+  padding pad-t
 
 // Media queries
 @media (max-width: 1000px)

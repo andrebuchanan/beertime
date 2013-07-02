@@ -4,56 +4,44 @@
 
 /* Directives */
 angular.module('arbapp.directives', []).
-  directive('version', function(version) {
-    return {
-      replace: true,
-      restrict: "E",
-      template: '<div>AngualrJS v{{ver}}</div>',
-      link: function(scope)
-      {
-        scope.ver = angular.version.full;
-      }
-    };
-  }).
-  // Login Form
-  directive("login", function()
+  directive("numDrink", function()
   {
     return {
-      restrict: "E",
-      templateUrl: "partials/login.html",
-      replace: true,
+      restrict: "A",
       scope: {
-        username: "@",
-        password: "@",
-        login: "&",
-        close: "&",
-        error: "@"
+        numDrink: "@"
       },
+      template: "<span></span>",
       link: function(scope, element, attrs)
       {
-        scope.showClose = attrs.close ? true : false;
-        scope.username = "";
-        scope.password = "";
+        var output = "";
+        for (var i = 0; i < attrs.numDrink; i++)
+        {
+          output += "<img src='/img/beer-icon.png'>";
+        }
+        console.log("WTF");
+        element.html(output);
       }
     };
   }).
-  //
-  directive("markdown", function () {
-    var converter = new Showdown.converter();
+  directive("onEnter", function()
+  {
     return {
-      restrict: "AE",
-      link: function (scope, element, attrs) {
-        attrs.$observe("markdown", function(newValue)
+      restrict: "A",
+      // scope: {
+      //   onEnter: "&"
+      // },
+      link: function(scope, element, attrs)
+      {
+        console.log("HI");
+        element.bind("keydown keypress", function(event)
         {
-          if (newValue === undefined) return;
-          var md = converter.makeHtml(newValue);
-          element.html(md);
+          console.log(event);
+          if (event.which === 13)
+          {
+            scope.$apply(attrs.onEnter, scope.chat);
+          }
         });
-        if (element.text())
-        {
-          var md = converter.makeHtml(element.text());
-          element.html(md);
-        }
       }
     };
   });

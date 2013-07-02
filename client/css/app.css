@@ -23,7 +23,7 @@
 .text-shadow,a{text-shadow:1px 1px 3px #222}
 
 /* line 85 : /home/abuchanan/playpen/jevon/client/css/app.styl */
-.rounded,.decoration,.button,input[type=text],input[type=password],textarea,.digital-container,.digital,.list{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+.rounded,.decoration,.button,input[type=text],input[type=password],textarea,.digital-container,.digital,.list,.message-content{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
 
 /* line 87 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .top-rounded{-webkit-border-radius:3px 3px 0 0;-moz-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0}
@@ -142,66 +142,75 @@ img.loader{margin:auto;margin-bottom:1em;max-width:80%;height:auto;display:block
 .heading.error{background-color:rgba(255,0,0,0.5)}
 
 /* line 260 : /home/abuchanan/playpen/jevon/client/css/app.styl */
-.content-pane{border:0;overflow:visible}
+.content-pane{border:0;overflow:visible;}
 
 /* line 263 : /home/abuchanan/playpen/jevon/client/css/app.styl */
-.content{color:#bbb !important}
+.content-pane.noover{overflow:auto}
 
 /* line 265 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+.content{color:#bbb !important}
+
+/* line 267 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .button{background-color:rgba(15,54,65,0.66)}
 
-/* line 268 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 270 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .bevel,.digital{-moz-box-shadow:0 0 .1em .1em #444;-webkit-box-shadow:0 0 .1em .1em #444;box-shadow:0 0 .1em .1em #444;border:1px solid #444;border-right-color:#777;border-bottom-color:#777}
 
-/* line 273 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 275 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .dark{background-color:rgba(34,34,34,0.5) !important}
 
-/* line 275 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 277 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .spacer{margin-top:2em}
 
-/* line 277 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 279 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .digital-container{-moz-box-shadow:-.1em -.1em .5em .1em #333;-webkit-box-shadow:-.1em -.1em .5em .1em #333;box-shadow:-.1em -.1em .5em .1em #333;background-color:#222;padding:1em;color:#bbb;text-shadow:.05em .05em .15em #888;width:70%;margin:auto}
 
-/* line 286 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 288 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .digital{font-family:'Radioland';color:rgba(255,0,0,0.57);text-shadow:.05em .05em 1em #f00;background-color:#222;padding:.65em .5em .35em .35em;display:inline-block;width:2.3em;-moz-box-shadow:0 0 1em .1em rgba(255,0,0,0.2);-webkit-box-shadow:0 0 1em .1em rgba(255,0,0,0.2);box-shadow:0 0 1em .1em rgba(255,0,0,0.2)}
 
-/* line 298 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 300 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list{background-color:rgba(34,34,34,0.6);padding:.5em;margin:.5em 0;position:relative;}
 
-/* line 304 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 306 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr{display:inline-block;width:15%;text-align:center;cursor:pointer;vertical-align:middle;}
 
-/* line 311 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 313 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr.name{width:50%;text-align:left}
 
-/* line 314 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 316 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr.comment{text-align:left;width:80%;font-size:.66em;padding:1em;display:block;position:absolute;background-color:rgba(45,98,113,0.5);z-index:9999;}
 
-/* line 323 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 325 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr.comment.small{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;display:inline-block;width:auto;padding:.25em 1em;left:2.5em;bottom:0}
 
-/* line 330 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 332 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr.yes{color:#256071}
 
-/* line 332 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 334 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr.no{color:#8f5d2b}
 
-/* line 334 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 336 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr .comment-ind{vertical-align:middle}
 
-/* line 336 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 338 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr .comment-ind.is{color:#ccc}
 
-/* line 338 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 340 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list .attr .comment-ind.isnot{color:#777}
 
-/* line 342 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 345 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+.message{padding:.5em}
+
+/* line 347 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+.message-content{background-color:rgba(187,187,187,0.2);padding:.25em}
+
+/* line 353 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 @media (max-width: 1000px){
-/* line 343 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 354 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 body{font-size:.75em}
 }
-/* line 345 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 356 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 @media (max-width: 500px){
-/* line 346 : /home/abuchanan/playpen/jevon/client/css/app.styl */
+/* line 357 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 body{font-size:.66em}
 }

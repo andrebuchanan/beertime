@@ -92,5 +92,11 @@ angular.module('arbapp.services', ["ngResource"]).
       }
     });
     return Att;
+  }).
+  factory("Chat", function($resource)
+  {
+    var Chat = $resource("/chat/:name", {},{
+    });
+    return Chat;
   });
 })();

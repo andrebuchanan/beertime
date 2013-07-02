@@ -46,7 +46,25 @@
           <div class="content-pane dark spacer" ng-show="delMessage">
             <div class="heading bare">Undo!</div>
             <div class="content">
-              {{delMessage}} <div class="button" ng-click="ngMessage = false; undo(delguy);">Undo</div>
+              {{delMessage}} <div class="button" ng-click="delMessage = false; undo(delguy);">Undo</div>
+              <div class="button" ng-click="delMessage = false;">He Deserved It</div>
+            </div>
+          </div>
+
+          <div class="content-pane dark spacer noover messages">
+            <div class="heading bare">BeerChat
+              <div class="buttons">
+                <div class="button glyph" ng-init="showBeerChat = true" ng-click="showBeerChat = !showBeerChat">e</div>
+              </div>
+            </div>
+            <div class="content" ng-show="showBeerChat">
+              <input type="text" ng-model="chat.name" placeholder="Your Name, Sir / Madam">
+              <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
+              <hr/>
+              <div class="message" ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
+                {{msg.name}} - {{msg.date | date:'medium'}}
+                <div class="message-content">{{msg.message}}</div>
+              </div>
             </div>
           </div>
 
@@ -64,13 +82,13 @@
                 <div class="attr name">Name</div>
                 <div class="attr">Going</div>
                 <div class="attr">Shots</div>
-                <div class="attr">My Shout</div>
+                <div class="attr">Drinks</div>
               </div>
               <div class="list" ng-repeat="att in attendees | filter:{deleted:false} | orderBy:'name'">
                 <div class="attr name"><span class="glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</span> {{att.name}}</div>
                 <div class="attr glyph" ng-click="att.pub = !att.pub; update(att);" ng-class="{no: !att.pub, yes: att.pub}">{{att.pub | onoff}}</div>
                 <div class="attr glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">{{att.shots | onoff}}</div>
-                <div class="attr glyph" ng-click="att.shout = !att.shout; update(att);" ng-class="{no: !att.shout, yes: att.shout}">{{att.shout | onoff}}</div>
+                <div class="attr" ng-click="att.shout = att.shout + 1; update(att);" numDrink="{{att.shout}}"></div>
                 <div class="attr comment small" ng-show="att.comment">{{att.comment}}</div>
                 <div class="attr comment" ng-show="att.showCommentField">
                   <input class="" type="text" ng-model="att.comment">
@@ -106,6 +124,7 @@
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
 
     <!-- No script -->
     <noscript>

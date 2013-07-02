@@ -7,7 +7,7 @@
 angular.module('arbapp.controllers', []).
   //
   // App controller. Handle basic functions.
-  controller("appCtrl", function($scope, $timeout, Att, events, topic, $window)
+  controller("appCtrl", function($scope, $timeout, Att, events, topic, $window, Chat)
   {
     $scope.attendees = Att.query();
     $scope.dels = {};
@@ -15,6 +15,7 @@ angular.module('arbapp.controllers', []).
 
     $scope.update = function(att)
     {
+      if (att.shout > 3) att.shout = 1;
       Att.update(att);
     };
 
@@ -84,6 +85,19 @@ angular.module('arbapp.controllers', []).
     topic.subscribe("evt/att", function(message)
     {
       $scope.updateList(message.att);
+    });
+
+    $scope.messages = Chat.query();;
+    // Chatting
+    $scope.sendMessage = function(chat)
+    {
+      Chat.save(chat);
+      chat.message = "";
+    };
+
+    topic.subscribe("evt/chat", function(message)
+    {
+      $scope.messages.push(message.chat);
     });
   });
 })();
