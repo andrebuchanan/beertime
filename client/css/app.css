@@ -166,7 +166,7 @@ img.loader{margin:auto;margin-bottom:1em;max-width:80%;height:auto;display:block
 .digital-container{-moz-box-shadow:-.1em -.1em .5em .1em #333;-webkit-box-shadow:-.1em -.1em .5em .1em #333;box-shadow:-.1em -.1em .5em .1em #333;background-color:#222;padding:1em;color:#bbb;text-shadow:.05em .05em .15em #888;width:70%;margin:auto}
 
 /* line 288 : /home/abuchanan/playpen/jevon/client/css/app.styl */
-.digital{font-family:'Radioland';color:rgba(255,0,0,0.57);text-shadow:.05em .05em 1em #f00;background-color:#222;padding:.65em .5em .35em .35em;display:inline-block;width:2.3em;-moz-box-shadow:0 0 1em .1em rgba(255,0,0,0.2);-webkit-box-shadow:0 0 1em .1em rgba(255,0,0,0.2);box-shadow:0 0 1em .1em rgba(255,0,0,0.2)}
+.digital{font-family:'Radioland';color:rgba(255,0,0,0.57);text-shadow:.05em .05em 1em #f00;background-color:#222;padding:.65em .5em .35em .35em;display:inline-block;width:2.3em;-moz-box-shadow:inset 0 0 .25em .1em rgba(255,0,0,0.2);-webkit-box-shadow:inset 0 0 .25em .1em rgba(255,0,0,0.2);box-shadow:inset 0 0 .25em .1em rgba(255,0,0,0.2)}
 
 /* line 300 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 .list{background-color:rgba(34,34,34,0.6);padding:.5em;margin:.5em 0;position:relative;}
