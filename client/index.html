@@ -88,7 +88,7 @@
                 <div class="attr name"><span class="glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</span> {{att.name}}</div>
                 <div class="attr glyph" ng-click="att.pub = !att.pub; update(att);" ng-class="{no: !att.pub, yes: att.pub}">{{att.pub | onoff}}</div>
                 <div class="attr glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">{{att.shots | onoff}}</div>
-                <div class="attr" ng-click="att.shout = att.shout + 1; update(att);" numDrink="{{att.shout}}"></div>
+                <div class="attr" ng-click="att.shout = att.shout + 1; update(att);" numdrink="{{att.shout}}"></div>
                 <div class="attr comment small" ng-show="att.comment">{{att.comment}}</div>
                 <div class="attr comment" ng-show="att.showCommentField">
                   <input class="" type="text" ng-model="att.comment">

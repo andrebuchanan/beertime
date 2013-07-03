@@ -4,33 +4,31 @@
 
 /* Directives */
 angular.module('arbapp.directives', []).
-  directive("numDrink", function()
-  {
-    return {
-      restrict: "A",
-      scope: {
-        numDrink: "@"
-      },
-      template: "<span></span>",
-      link: function(scope, element, attrs)
-      {
-        var output = "";
-        for (var i = 0; i < attrs.numDrink; i++)
-        {
-          output += "<img src='/img/beer-icon.png'>";
-        }
-        console.log("WTF");
-        element.html(output);
-      }
-    };
-  }).
-  directive("onEnter", function()
+  directive("numdrink", function()
   {
     return {
       restrict: "A",
       // scope: {
-      //   onEnter: "&"
+      //   numdrink: "@"
       // },
+      link: function(scope, element, attrs)
+      {
+        attrs.$observe("numdrink", function(newValue)
+        {
+          var output = "";
+          for (var i = 0; i < attrs.numdrink; i++)
+          {
+            output += "<img src='/img/beer-icon.png'>";
+          }
+          element.html(output);
+        });
+      }
+    };
+  }).
+  directive("onenter", function()
+  {
+    return {
+      restrict: "A",
       link: function(scope, element, attrs)
       {
         console.log("HI");
