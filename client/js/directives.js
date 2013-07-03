@@ -31,13 +31,12 @@ angular.module('arbapp.directives', []).
       restrict: "A",
       link: function(scope, element, attrs)
       {
-        console.log("HI");
         element.bind("keydown keypress", function(event)
         {
-          console.log(event);
           if (event.which === 13)
           {
-            scope.$apply(attrs.onEnter, scope.chat);
+            if (scope.chat)
+              scope.$apply(attrs.onenter, scope.chat);
           }
         });
       }
