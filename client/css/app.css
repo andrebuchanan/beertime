@@ -113,7 +113,7 @@
 html *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 
 /* line 213 : /home/abuchanan/playpen/jevon/client/css/app.styl */
-body{background-image:url("/img/beer.jpg");background-attachment:fixed;background-size:contain;font-family:Verdana,Geneva,'DejaVu Sans',sans-serif;color:#444;padding:1em;font-size:1em;margin:auto;}
+body{background-image:url("/img/beer.jpg");background-attachment:fixed;background-size:cover;font-family:Verdana,Geneva,'DejaVu Sans',sans-serif;color:#444;padding:1em;font-size:1em;margin:auto;}
 
 /* line 222 : /home/abuchanan/playpen/jevon/client/css/app.styl */
 body.fluid{width:80%}
