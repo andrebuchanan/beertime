@@ -58,6 +58,12 @@ transition(type = all, easing = ease-in-out, duration = .3s)
   -ms-transition type easing duration
   -o-transition type easing duration
   transition type easing duration
+transform()
+  -webkit-transform arguments
+  -moz-transform    arguments
+  -ms-transform     arguments
+  -o-transform      arguments
+  transform         arguments
 
 vertical-gradient(startColor, endColor)
   background-color startColor
@@ -197,11 +203,10 @@ vertical-gradient(startColor, endColor)
 .popup
   @extends .shadow
   position absolute
-  top 20%
-  width 66%
-  left 16%
-  margin-left auto
-  margin-right auto
+  top 50%
+  left 50%
+  width 33%
+  transform translate(-50%, -50%)
   z-index 9999
 
 // General structural elements end.
@@ -276,6 +281,8 @@ img.loader
   background-color rgba(#222, 0.5)  !important
 .spacer
   margin-top 2em
+
+// Structural elements.
 .digital-container
   @extends .rounded
   box-shadow -.1em -.1em .5em .1em #333
@@ -296,6 +303,29 @@ img.loader
   display inline-block
   width 2.3em
   box-shadow inset 0em 0em .25em .1em rgba(red, 0.2)
+
+.slideout
+  @extends .transition
+  line-height 0em
+.slidein
+  @extends .transition
+  line-height 1em
+.side-bar
+  position fixed
+  left 0
+  background-color #222
+  top 20%
+  z-index 9999
+  ul
+    padding 0
+    margin 0
+    list-style-type none
+    li
+      @extends .transition
+      cursor pointer
+      padding pad-t
+      &:hover
+        color #DDD
 
 .list
   @extends .rounded

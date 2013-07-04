@@ -7,8 +7,14 @@
   </head>
   <body class="transition">
 
+    <div class="side-bar">
+      <ul>
+        <li class="glyph" ng-click="showBeerChat = !showBeerChat">b</li>
+      </ul>
+    </div>
+
     <div ng-show="status.loaded">
-      <ul class="columns">
+      <ul class="columns xone">
 
         <li>
           <div class="content-pane dark">
@@ -51,13 +57,13 @@
             </div>
           </div>
 
-          <div class="content-pane dark spacer noover messages">
+          <div class="content-pane dark spacer noover messages" ng-show="showBeerChat" ng-animate="{show:'slidein', hide:'slideout'}">
             <div class="heading bare">BeerChat
               <div class="buttons">
                 <div class="button glyph" ng-init="showBeerChat = true" ng-click="showBeerChat = !showBeerChat">e</div>
               </div>
             </div>
-            <div class="content" ng-show="showBeerChat">
+            <div class="content">
               <input type="text" ng-model="chat.name" placeholder="Your Name, Sir / Madam">
               <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
               <hr/>
@@ -84,7 +90,7 @@
                 <div class="attr">Shots</div>
                 <div class="attr">Drinks</div>
               </div>
-              <div class="list" ng-repeat="att in attendees | filter:{deleted:false} | orderBy:'name'">
+              <div class="list" ng-repeat="att in attendees | filter:{deleted:'false'} | orderBy:'name'">
                 <div class="attr name"><span class="glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</span> {{att.name}}</div>
                 <div class="attr glyph" ng-click="att.pub = !att.pub; update(att);" ng-class="{no: !att.pub, yes: att.pub}">{{att.pub | onoff}}</div>
                 <div class="attr glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">{{att.shots | onoff}}</div>
