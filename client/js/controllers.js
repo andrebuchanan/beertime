@@ -92,7 +92,7 @@ angular.module('arbapp.controllers', []).
     $scope.sendMessage = function(chat)
     {
       Chat.save(chat);
-      chat.message = "";
+      // chat.message = "";
     };
 
     topic.subscribe("evt/chat", function(message)

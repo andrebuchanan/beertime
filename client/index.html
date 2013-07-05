@@ -7,13 +7,39 @@
   </head>
   <body class="transition">
 
-    <div class="side-bar">
+    <div class="body-shadow"> </div>
+
+    <div class="side-bar" ng-show="status.loaded">
       <ul>
         <li class="glyph" ng-click="showBeerChat = !showBeerChat">b</li>
+        <li class="glyph" ng-init="showAdminPanel = false" ng-click="showAdminPanel = !showAdminPanel">G</li>
       </ul>
     </div>
 
-    <div ng-show="status.loaded">
+    <div class="side-board" ng-show="status.loaded && showAdminPanel">
+      <div class="content-pane dark spacer">
+        <div class="heading bare">Beer Administration Panel
+          <div class="buttons">
+            <div class="button glyph" ng-click="showAdminPanel = !showAdminPanel">e</div>
+          </div>
+        </div>
+        <div class="content">
+          <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
+          <hr/>
+          <input type="text" ng-model="delguy.name" placeholder="Type Name to Remove"> <div class="button" ng-click="del(delguy)" ng-show="delguy">Remove</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main" ng-show="status.loaded">
+
+      <div class="site-header">
+        <div class="forque">BeerTime!
+          <div class="yay glyph">*<div class=" forque yay2">yay!</div></div>
+        </div>
+        <div><i>Bringing the end of the week closer, one painful second at a time</i></div>
+      </div>
+
       <ul class="columns xone">
 
         <li>
@@ -36,19 +62,6 @@
             </div>
           </div>
 
-          <div class="content-pane dark spacer">
-            <div class="heading bare">Beer Administration Panel
-              <div class="buttons">
-                <div class="button glyph" ng-click="showAdminPanel = !showAdminPanel">e</div>
-              </div>
-            </div>
-            <div class="content" ng-show="showAdminPanel">
-              <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
-              <hr/>
-              <input type="text" ng-model="delguy.name" placeholder="Type Name to Remove"> <div class="button" ng-click="del(delguy)" ng-show="delguy">Remove</div>
-            </div>
-          </div>
-
           <div class="content-pane dark spacer" ng-show="delMessage">
             <div class="heading bare">Undo!</div>
             <div class="content">
@@ -67,7 +80,7 @@
               <input type="text" ng-model="chat.name" placeholder="Your Name, Sir / Madam">
               <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
               <hr/>
-              <div class="message" ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
+              <div class="message" ng-repeat="msg in messages | limitTo:5 | orderBy:'date':true">
                 {{msg.name}} - {{msg.date | date:'medium'}}
                 <div class="message-content">{{msg.message}}</div>
               </div>

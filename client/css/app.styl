@@ -11,6 +11,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'forque';
+    src: url('/fonts/Forque-webfont.eot'), url('/fonts/Forque-webfont.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 
 // Colour theme from colorschemedesigner.com, http://colorschemedesigner.com/#3o21Tptd7g0g0
 primary-1 = #0F3641
@@ -25,9 +31,9 @@ complement-4 = #8F5D2B
 complement-5 = #8F6336
 // Other colours.
 shadow-colour      = #222
-content-text-color = #444
+content-text-color = #222
 content-text-neutral = #999
-content-text-alt   = #FFF
+content-text-alt   = #EEE
 heading-background = complement-4
 content-background = white
 button-text-color  = content-text-color
@@ -219,7 +225,8 @@ body
   background-image url('/img/beer.jpg')
   background-attachment fixed
   background-size cover
-  font-family Verdana,Geneva,'DejaVu Sans',sans-serif
+  // font-family Verdana,Geneva,'DejaVu Sans',sans-serif
+  font-family Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif
   color content-text-color
   padding pad-l
   font-size 1em
@@ -242,25 +249,6 @@ input[type=text],input[type=password],textarea
 hr
   margin pad-l 0
 
-// Specific structural elements.
-
-// Pre-js loader info
-.index-loader
-  @extends .popup
-  .content
-    text-align center
-
-// Bar loader image.
-img.loader
-  margin auto
-  margin-bottom pad-l
-  max-width 80%
-  height auto
-  display block
-
-.heading.error
-  background-color rgba(red, 0.5)
-
 // App overrides.
 .content-pane
   border 0
@@ -282,7 +270,68 @@ img.loader
 .spacer
   margin-top 2em
 
+// App General
+.forque
+  font-family 'forque'
+
+// Specific structural elements.
+
+// Pre-js loader info
+.index-loader
+  @extends .popup
+  .content
+    text-align center
+
+// Bar loader image.
+img.loader
+  margin auto
+  margin-bottom pad-l
+  max-width 80%
+  height auto
+  display block
+
+.heading.error
+  background-color rgba(red, 0.5)
+
 // Structural elements.
+.body-shadow
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  box-shadow inset 0em 0em 10em 5em #111
+.main
+  width 80%
+  margin auto
+  background-image url('/img/bodybkg.png')
+  box-shadow 0em 0em 1em .25em #111
+.site-header
+  padding pad-s
+  position relative
+  color content-text-alt
+  .forque
+    font-size 10em
+    height 1.2em
+    display inline-block
+    position relative
+    .yay
+      position absolute
+      // left 48%
+      // top 7%
+      right -.7em
+      top 0
+      color #800
+      font-size .7em
+      transform rotate(-30deg)
+      .yay2
+        font-size .45em
+        position absolute
+        top 45%
+        left 50%
+        color content-text-alt
+        transform translate(-50%, -50%)
+
 .digital-container
   @extends .rounded
   box-shadow -.1em -.1em .5em .1em #333
@@ -313,10 +362,12 @@ img.loader
 .side-bar
   position fixed
   left 0
+  color #444
   background-color #222
   top 20%
   z-index 9999
   ul
+    @extends .shadow
     padding 0
     margin 0
     list-style-type none
@@ -324,8 +375,13 @@ img.loader
       @extends .transition
       cursor pointer
       padding pad-t
+      border-bottom 1px solid #444
       &:hover
         color #DDD
+
+.side-board
+  position absolute
+  z-index 9999
 
 .list
   @extends .rounded
