@@ -20,10 +20,9 @@ angular.module('arbapp.controllers', []).
     {
       $timeout(function()
       {
-
         $scope.msg.scroll = $scope.msg.scroll ? "" : "scrolled";
         $scope.scrollTimer();
-      }, 15000);
+      }, 1500);
     };
     $scope.scrollTimer();
 

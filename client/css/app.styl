@@ -124,32 +124,31 @@ vertical-gradient(startColor, endColor)
   position relative
   border 1px solid #EEE
   overflow hidden
-  .heading
-    @extends .shadow-heading
-    background-color rgba(heading-background, 0.5)
-    overflow hidden
-    position relative
-    min-height 2em
-    padding pad-s
-    color content-text-alt
-    z-index 1
-    border-radius 0 0 3px 0
-    &.bare
-      margin-bottom 1em
-    .buttons
-      position absolute
-      right pad-t
-      top pad-t
-      .button
-        padding pad-t
-        &.glyph
-          font-size 1em
-          position relative
-          top -.5em
-  .content
-    position relative
-    padding pad-l pad-s
-    color content-text-color
+.heading
+  @extends .shadow-heading
+  overflow hidden
+  position relative
+  min-height 2em
+  padding pad-s
+  color content-text-alt
+  z-index 1
+  border-bottom 1px solid #222
+  &.bare
+    margin-bottom 1em
+  .buttons
+    position absolute
+    right pad-t
+    top pad-t
+    .button
+      padding pad-t
+      &.glyph
+        font-size 1em
+        position relative
+        top -.5em
+.content
+  position relative
+  padding pad-l pad-s
+  color content-text-color
 
 .columns
   margin 0
@@ -161,7 +160,6 @@ vertical-gradient(startColor, endColor)
     display inline-block
     width 49%
     position relative
-    margin-bottom 2.5%
     vertical-align top
     padding pad-s
     .buttons
@@ -174,12 +172,6 @@ vertical-gradient(startColor, endColor)
     content ''
     width 100%
     display inline-block
-
-.layout
-  height 100%
-  &.fadein
-    opacity 0
-     color rgba(content-text-alt, 0.75)
 
 .button
   @extends .shadow-small
@@ -197,13 +189,6 @@ vertical-gradient(startColor, endColor)
 .buttons
   .button
     margin 0 pad-t
-
-// Show and hide elements.
-.show,.hide
-  @extends .transition
-  opacity 1
-.hide
-  opacity 0
 
 // Absolutely positioned popup elements.
 .popup
@@ -247,9 +232,13 @@ input[type=text],input[type=password],textarea
   background-color field-background
   color field-text-color
 hr
+  border-color #444
   margin pad-l 0
 
 // App overrides.
+.heading
+  font-size 1.2em
+  font-family 'forque'
 .content-pane
   border 0
   overflow visible
@@ -268,14 +257,6 @@ hr
   background-color rgba(#222, 0.5)  !important
 .spacer
   margin-top 2em
-.columns
-  .col1
-    width 21%
-    text-align center
-    position relative
-  .col2
-    width 77%
-    position relative
 
 // App General
 .forque
@@ -326,13 +307,15 @@ img.loader
   width 80%
   margin auto
   background-image url('/img/bodybkg.png')
+  background-color rgba(#000, 0.9)
+  background-attachment fixed
   box-shadow 0em 0em 1em .25em #111
   color content-text-alt
 .site-header
   padding pad-s
   position relative
   margin-bottom 1em
-  margin-left 2.5em
+  text-align center
   .forque
     font-size 10em
     height 1.2em
@@ -352,15 +335,13 @@ img.loader
       left 50%
 
 .digital-container
-  padding pad-l
-  display inline-block
-  // position absolute
+  text-align center
   top 0em
   font-family 'forque'
 .digital
   font-size 6em
   height 1.3em
-  text-shadow .1em .1em .1em #222
+  text-shadow .1em .1em .1em #111
   display inline-block
 
 .side-bar
@@ -371,30 +352,31 @@ img.loader
   top 20%
   z-index 9999
   ul
-    @extends .shadow
+    box-shadow .1em .1em 1em .1em #444
     padding 0
     margin 0
     list-style-type none
+    &:hover
+      box-shadow .1em .1em 1em .1em #888
   li
     @extends .transition
     cursor pointer
-    padding pad-t
+    padding pad-s
     border-bottom 1px solid #444
-    &:hover
+    &:hover,&.active
       color #DDD
-
 .side-board
-  transition width ease-in-out
+  @extends .rounded
+  box-shadow .5em .5em 1em .1em #111
+  transition width ease-in-out 1s
   position absolute
   z-index 9999
-  // width 40%
-  background-color rgba(#111, 0.7)
+  width 50vw
+  background-color rgba(#111, 0.5)
   left 100%
 
 .list
   @extends .rounded
-  // background-color rgba(#222, 0.6)
-  // padding pad-s
   margin pad-s 0
   position relative
   color content-text-alt
@@ -446,40 +428,17 @@ img.loader
     &.comment-ind.isnot
       color #777
 
-// .messages
-//   max-height 50vh
-.tick-container
-  position absolute
-  display inline-block
-.tick
-  transition right linear 14s
-  right 0
-  position relative
-  &.scrolled
-    // transform translate(-100%)
-    right calc(100% - 20vw)
-.message-ticker
-  white-space nowrap
-  text-overflow nobreak
-  overflow hidden
-  position relative
-  height 3em
-  .glyph
-    width 10%
-    display inline-block
-    text-align center
 .message
   padding pad-s
-  &.ticker
-    display inline-block
-    .attr
-      padding pad-t
-    .name
-      background-color rgba(primary-3, 0.5)
+  line-height 2em
+  .attr
+    padding pad-t
+    @extends .rounded
+  .name
+    background-color rgba(primary-3, 0.5)
+  .message-content
+    background-color rgba(#BBB, 0.2)
 
-.message-content
-  @extends .rounded
-  background-color rgba(#BBB, 0.2)
 
 // Media queries
 @media (max-width: 1000px)

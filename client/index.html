@@ -11,30 +11,25 @@
 
     <div class="side-bar" ng-show="status.loaded">
       <ul>
-        <li><div class="glyph" ng-click="showBeerChat = !showBeerChat">b</div>
+        <li ng-init="showAdminPanel = false" ng-class="{active:showAdminPanel}" >
+          <div class="glyph" ng-click="showAdminPanel = !showAdminPanel">G</div>
           <div class="side-board" ng-show="status.loaded && showAdminPanel">
-      <div class="content-pane dark spacer">
-        <div class="heading bare">Beer Administration Panel
-          <div class="buttons">
-            <div class="button glyph" ng-click="showAdminPanel = !showAdminPanel">e</div>
+            <div class="heading bare">Beer Administration Panel</div>
+            <div class="content">
+              <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
+              <hr/>
+              <input type="text" ng-model="delguy.name" placeholder="Type Name to Remove"> <div class="button" ng-click="del(delguy)" ng-show="delguy">Remove</div>
+              <div ng-show="delMessage">
+                <div class="heading bare">Undo!</div>
+                {{delMessage}} <div class="button" ng-click="delMessage = false; undo(delguy);">Undo</div>
+                <div class="button" ng-click="delMessage = false;">He Deserved It</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="content">
-          <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
-          <hr/>
-          <input type="text" ng-model="delguy.name" placeholder="Type Name to Remove"> <div class="button" ng-click="del(delguy)" ng-show="delguy">Remove</div>
-        </div>
-      </div>
-      <div class="content-pane dark spacer" ng-show="delMessage">
-        <div class="heading bare">Undo!</div>
-        <div class="content">
-          {{delMessage}} <div class="button" ng-click="delMessage = false; undo(delguy);">Undo</div>
-          <div class="button" ng-click="delMessage = false;">He Deserved It</div>
-        </div>
-      </div>
-    </div>
-</li>
-        <li class="glyph" ng-init="showAdminPanel = false" ng-click="showAdminPanel = !showAdminPanel">G</li>
+        </li>
+        <li ng-init="showChat = true" ng-class="{active:showChat}">
+          <div class="glyph" ng-click="showChat = !showChat">b</div>
+        </li>
       </ul>
     </div>
 
@@ -63,18 +58,6 @@
           </div>
         </li>
 
-        <li class="message-ticker">
-          <div class="glyph">b</div>
-          <div class="tick-container">
-            <div class="tick {{msg.scroll}}">
-              <div class="message ticker " ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
-                <span class="attr name forque">{{msg.name}}</span> - <span class="attr date">{{msg.date | date:'EEE HH:mm a'}}</span>
-                <span class="attr message-content">{{msg.message}}</span>
-              </div>
-            </div>
-          </div>
-        </li>
-
         <li>
           <div>
             <div class="list" ng-repeat="att in attendees | filter:{deleted:'false'} | orderBy:'name'">
@@ -94,24 +77,15 @@
           </div>
         </li>
 
-        <li>
-          <div class="content-pane dark spacer noover messages" ng-show="showBeerChat">
-            <div class="heading bare">BeerChat
-              <div class="buttons">
-                <div class="button glyph" ng-init="showBeerChat = true" ng-click="showBeerChat = !showBeerChat">e</div>
-              </div>
-            </div>
-            <div class="content">
-              <input type="text" ng-model="chat.name" placeholder="Your Name, Sir / Madam">
-              <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
-              <hr/>
-              <div class="message" ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
-                {{msg.name}} - {{msg.date | date:'medium'}}
-                <div class="message-content">{{msg.message}}</div>
-              </div>
-            </div>
+        <li ng-show="showChat">
+          <input type="text" ng-model="chat.name" placeholder="Your Name, Sir / Madam">
+          <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
+          <hr/>
+          <div class="message" ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
+            <span class="attr name forque">{{msg.name}}</span>
+            <span class="attr date">{{msg.date | date:'medium'}}</span>
+            <div class="attr message-content">{{msg.message}}</div>
           </div>
-
         </li>
     </div>
 
