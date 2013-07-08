@@ -31,7 +31,7 @@ angular.module('arbapp.directives', []).
       restrict: "A",
       link: function(scope, element, attrs)
       {
-        element.bind("keydown keypress", function(event)
+        element.bind("keypress", function(event)
         {
           if (event.which === 13)
           {

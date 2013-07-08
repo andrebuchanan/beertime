@@ -160,7 +160,7 @@ vertical-gradient(startColor, endColor)
     text-align left
     display inline-block
     width 49%
-    // min-height 23vh // 23% of viewport horizontal
+    position relative
     margin-bottom 2.5%
     vertical-align top
     padding pad-s
@@ -259,7 +259,6 @@ hr
   color #BBB !important
 .button
   background-color rgba(primary-1, 0.66)
-
 .bevel
   box-shadow 0em 0em .1em .1em #444
   border 1px solid #444
@@ -269,10 +268,31 @@ hr
   background-color rgba(#222, 0.5)  !important
 .spacer
   margin-top 2em
+.columns
+  .col1
+    width 21%
+    text-align center
+    position relative
+  .col2
+    width 77%
+    position relative
 
 // App General
 .forque
   font-family 'forque'
+
+.feature
+  display inline-block
+  position relative
+  font-size 7em
+  text-shadow 3px 3px 5px #222
+  .yay2
+    font-size .3em
+    position absolute
+    top 50%
+    left 50%
+    color content-text-alt
+    transform translate(-50%, -50%)
 
 // Specific structural elements.
 
@@ -301,64 +321,48 @@ img.loader
   width 100%
   height 100%
   box-shadow inset 0em 0em 10em 5em #111
+  z-index -1
 .main
   width 80%
   margin auto
   background-image url('/img/bodybkg.png')
   box-shadow 0em 0em 1em .25em #111
+  color content-text-alt
 .site-header
   padding pad-s
   position relative
-  color content-text-alt
+  margin-bottom 1em
+  margin-left 2.5em
   .forque
     font-size 10em
     height 1.2em
     display inline-block
     position relative
-    .yay
+  .feature
+    position absolute
+    right -.7em
+    top 0
+    font-size .7em
+    transform rotate(-30deg)
+    color #800
+    .yay2
+      font-size .45em
       position absolute
-      // left 48%
-      // top 7%
-      right -.7em
-      top 0
-      color #800
-      font-size .7em
-      transform rotate(-30deg)
-      .yay2
-        font-size .45em
-        position absolute
-        top 45%
-        left 50%
-        color content-text-alt
-        transform translate(-50%, -50%)
+      top 45%
+      left 50%
 
 .digital-container
-  @extends .rounded
-  box-shadow -.1em -.1em .5em .1em #333
-  background-color #222
   padding pad-l
-  color #BBB
-  text-shadow .05em .05em .15em #888
-  width 70%
-  margin auto
-.digital
-  @extends .bevel
-  @extends .rounded
-  font-family 'Radioland'
-  color rgba(red, 0.57)
-  text-shadow .05em .05em 1em red
-  background-color #222
-  padding pad-s*1.3 pad-s pad-s*.7 pad-s*.7
   display inline-block
-  width 2.3em
-  box-shadow inset 0em 0em .25em .1em rgba(red, 0.2)
+  // position absolute
+  top 0em
+  font-family 'forque'
+.digital
+  font-size 6em
+  height 1.3em
+  text-shadow .1em .1em .1em #222
+  display inline-block
 
-.slideout
-  @extends .transition
-  line-height 0em
-.slidein
-  @extends .transition
-  line-height 1em
 .side-bar
   position fixed
   left 0
@@ -371,37 +375,50 @@ img.loader
     padding 0
     margin 0
     list-style-type none
-    li
-      @extends .transition
-      cursor pointer
-      padding pad-t
-      border-bottom 1px solid #444
-      &:hover
-        color #DDD
+  li
+    @extends .transition
+    cursor pointer
+    padding pad-t
+    border-bottom 1px solid #444
+    &:hover
+      color #DDD
 
 .side-board
+  transition width ease-in-out
   position absolute
   z-index 9999
+  // width 40%
+  background-color rgba(#111, 0.7)
+  left 100%
 
 .list
   @extends .rounded
-  background-color rgba(#222, 0.6)
-  padding pad-s
+  // background-color rgba(#222, 0.6)
+  // padding pad-s
   margin pad-s 0
   position relative
+  color content-text-alt
+  img
+    width 1.5em
+    opacity 0.7
   .attr
     @extends .transition
     display inline-block
-    width 15%
+    width 10%
     text-align center
     cursor pointer
     vertical-align middle
-    img
-      width 1.5em
-      opacity 0.7
+    &.beer
+      width 5em
     &.name
+      @extends .forque
+      font-size 1.5em
       width 50%
       text-align left
+      .comment
+        font-family Constantia
+        font-size .75em
+        height 1em
     &.comment
       text-align left
       width 80%
@@ -422,21 +439,47 @@ img.loader
       color primary-4
     &.no
       color complement-4
-    .comment-ind
+    &.comment-ind
       vertical-align middle
-    .comment-ind.is
+    &.comment-ind.is
       color #CCC
-    .comment-ind.isnot
+    &.comment-ind.isnot
       color #777
 
 // .messages
 //   max-height 50vh
+.tick-container
+  position absolute
+  display inline-block
+.tick
+  transition right linear 14s
+  right 0
+  position relative
+  &.scrolled
+    // transform translate(-100%)
+    right calc(100% - 20vw)
+.message-ticker
+  white-space nowrap
+  text-overflow nobreak
+  overflow hidden
+  position relative
+  height 3em
+  .glyph
+    width 10%
+    display inline-block
+    text-align center
 .message
   padding pad-s
+  &.ticker
+    display inline-block
+    .attr
+      padding pad-t
+    .name
+      background-color rgba(primary-3, 0.5)
+
 .message-content
   @extends .rounded
   background-color rgba(#BBB, 0.2)
-  padding pad-t
 
 // Media queries
 @media (max-width: 1000px)

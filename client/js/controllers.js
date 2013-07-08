@@ -12,6 +12,20 @@ angular.module('arbapp.controllers', []).
     $scope.attendees = Att.query();
     $scope.dels = {};
     $scope.showAttPanel = true;
+    $scope.msg = {
+      scroll: "scrolled"
+    };
+
+    $scope.scrollTimer = function()
+    {
+      $timeout(function()
+      {
+
+        $scope.msg.scroll = $scope.msg.scroll ? "" : "scrolled";
+        $scope.scrollTimer();
+      }, 15000);
+    };
+    $scope.scrollTimer();
 
     $scope.update = function(att)
     {
@@ -40,7 +54,7 @@ angular.module('arbapp.controllers', []).
       $scope.delMessage = "You've deleted " + delme.name + ". Undo?";
     };
 
-    var eventHorizon = new Date("Jul 5, 2013 16:30:00");
+    var eventHorizon = new Date("Jul 12, 2013 16:00:00");
     $scope.beerDate = eventHorizon;
     $scope.beerClock = new Date();
     $scope.go = function()
@@ -87,12 +101,14 @@ angular.module('arbapp.controllers', []).
       $scope.updateList(message.att);
     });
 
-    $scope.messages = Chat.query();;
+    $scope.messages = Chat.query();
     // Chatting
     $scope.sendMessage = function(chat)
     {
-      Chat.save(chat);
-      // chat.message = "";
+      Chat.save(chat, function()
+      {
+        $scope.chat.message = "";
+      });
     };
 
     topic.subscribe("evt/chat", function(message)

@@ -22,7 +22,7 @@ angular.module('arbapp.filters', []).
         s: seconds
       };
       if (!portion) return days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-      return parts[portion] < 10 ? "0" + parts[portion] : parts[portion];
+      return parts[portion] < 10 && parts[portion] >= 0 ? "0" + parts[portion] : parts[portion];
     };
   }).
   filter("face", function()
