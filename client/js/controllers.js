@@ -29,6 +29,7 @@ angular.module('arbapp.controllers', []).
     $scope.update = function(att)
     {
       if (att.shout > 3) att.shout = 1;
+      if (!att.pub) att.shots = att.pub;
       Att.update(att);
     };
 

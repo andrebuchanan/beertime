@@ -185,7 +185,9 @@ vertical-gradient(startColor, endColor)
 // Absolutely positioned popup elements.
 .popup
   @extends .shadow
+  @extends .rounded
   position absolute
+  background-color rgba(content-background, 0.75)
   top 50%
   left 50%
   width 33%
@@ -232,13 +234,10 @@ hr
   font-family 'forque'
 .content-pane
   border 0
-  overflow visible
-  &.noover
-    overflow auto
 .button
   background-color rgba(primary-1, 0.66)
 .bevel
-  box-shadow 0em 0em .1em .1em #444
+  box-shadow 0em 0em .1em .1em shadow-colour
   border 1px solid border-colour
   border-right-color border-colour+40
   border-bottom-color border-colour+40
@@ -257,14 +256,15 @@ hr
   display inline-block
   position relative
   font-size 7em
-  text-shadow 3px 3px 5px #222
+  text-shadow 3px 3px 5px shadow-colour
+  line-height 1em
   .yay2
-    font-size .3em
+    color content-text-colour
     position absolute
+    font-size .45em
     top 50%
     left 50%
-    transform translate(-50%, -50%)
-    color content-text-colour
+    transform translate(-51%, -50%)
 
 // App Specific structural elements.
 
@@ -292,7 +292,7 @@ img.loader
   left 0
   width 100%
   height 100%
-  box-shadow inset 0em 0em 10em 5em #111
+  box-shadow inset 0em 0em 10em 5em content-background
   z-index -1
 .main
   @extends .rounded
@@ -301,29 +301,27 @@ img.loader
   background-image url('/img/bodybkg.png')
   background-color rgba(content-background, 0.9)
   background-attachment fixed
-  box-shadow 0em 0em 1em .25em #111
+  box-shadow 0em 0em 1em .25em shadow-colour
 .site-header
   padding pad-s
   position relative
   margin-bottom 1em
   text-align center
-  .forque
+  .text-shadow
+    text-shadow 0em .5em .5em shadow-colour
+  .title
     font-size 10em
     height 1.2em
     display inline-block
     position relative
+    text-shadow 0em .05em .1em shadow-colour
   .feature
     position absolute
     right -.7em
     top 0
     font-size .7em
-    transform rotate(-30deg)
+    transform rotate(-20deg)
     color #800
-    .yay2
-      font-size .45em
-      position absolute
-      top 45%
-      left 50%
 
 .digital-container
   text-align center
@@ -382,6 +380,11 @@ img.loader
     text-align center
     cursor pointer
     vertical-align middle
+    &.feature
+      // transform rotate(-20deg)
+      font-size 3em
+      .yay2
+        font-size .5em
     &.beer
       width 5em
     &.name
@@ -394,25 +397,21 @@ img.loader
         font-size .75em
         height 1em
     &.comment
+      @extends .rounded
+      @extends .shadow
       text-align left
       width 80%
-      font-size 0.66em
       padding pad-l
       display block
       position absolute
-      background-color rgba(primary-5, 0.5)
+      background-color rgba(content-background, 0.75)
       z-index 9999
-      &.small
-        @extends .rounded
-        display inline-block
-        width auto
-        padding pad-t pad-l
-        left 2.5em
-        bottom 0em
+      input
+        width 70%
     &.yes
-      color primary-4
+      color rgba(#800, .9)
     &.no
-      color complement-4
+      color primary-4
     &.comment-ind
       vertical-align middle
     &.comment-ind.is

@@ -36,10 +36,10 @@
     <div class="main" ng-show="status.loaded">
 
       <div class="site-header">
-        <div class="forque">BeerTime!
-          <div class="feature glyph">*<div class=" forque yay2">yay!</div></div>
+        <div class="forque title">BeerTime!
+          <div class="feature glyph">*<div class="forque yay2">yay!</div></div>
         </div>
-        <div><strong>Bringing the end of the week closer, one second at a time</strong></div>
+        <div class="text-shadow"><strong>Bringing the end of the week closer, one second at a time</strong></div>
       </div>
 
       <ul class="columns one">
@@ -59,26 +59,38 @@
         </li>
 
         <li>
-          <div>
-            <div class="list" ng-repeat="att in attendees | filter:{deleted:'false'} | orderBy:'name'">
-              <div class="attr glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</div>
-              <div class="attr name">
-                {{att.name}}
-                <div class="comment small">{{att.comment || 'No comment'}}</div>
-              </div>
-              <div class="attr glyph" ng-click="att.pub = !att.pub; update(att);" ng-class="{no: !att.pub, yes: att.pub}">{{att.pub | onoff}}</div>
-              <div class="attr glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">{{att.shots | onoff}}</div>
-              <span class="attr beer" ng-click="att.shout = att.shout + 1; update(att);" numdrink="{{att.shout}}"></span>
-              <div class="attr comment" ng-show="att.showCommentField">
-                <input class="" type="text" ng-model="att.comment">
-                <div class="button" ng-click="att.showCommentField = false; update(att);">Save</div>
-              </div>
+          <div class="list forque">
+            <div class="attr"></div>
+            <div class="attr name"></div>
+            <div class="attr">Going</div>
+            <div class="attr">Shots</div>
+          </div>
+          <div class="list" ng-repeat="att in attendees | filter:{deleted:'false'} | orderBy:'name'">
+            <div class="attr glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</div>
+            <div class="attr name">
+              {{att.name}}
+              <div class="comment small">{{att.comment || 'No comment'}}</div>
+            </div>
+            <div class="attr feature glyph" ng-click="att.pub = !att.pub; update(att);" ng-class="{no: !att.pub, yes: att.pub}">
+              *
+              <div class="yay2 forque">{{att.pub | onoff}}</div>
+            </div>
+            <div class="attr feature glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">
+              *
+              <div class="yay2 forque">{{att.shots | onoff}}</div>
+            </div>
+            <!-- <div class="attr glyph" ng-click="att.shots = !att.shots; update(att);" ng-class="{no: !att.shots, yes: att.shots}">{{att.shots | onoff}}</div> -->
+            <span class="attr beer" ng-click="att.shout = att.shout + 1; update(att);" numdrink="{{att.shout}}"></span>
+            <div class="attr comment" ng-show="att.showCommentField">
+              <input class="" type="text" ng-model="att.comment">
+              <div class="button" ng-click="att.showCommentField = false; update(att);">Save</div>
+              <div class="button" ng-click="att.showCommentField = false;">Cancel</div>
             </div>
           </div>
         </li>
 
         <li ng-show="showChat">
-          <input type="text" ng-model="chat.name" placeholder="Your Name, Sir / Madam">
+          <input type="text" ng-model="chat.name" placeholder="Your Name">
           <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
           <hr/>
           <div class="message" ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
