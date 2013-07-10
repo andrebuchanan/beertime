@@ -174,7 +174,7 @@ vertical-gradient(startColor, endColor)
   position relative
   &:hover
     background-image none
-    background-color primary-5
+    background-color primary-4
     color content-text-alt
     text-shadow none
     cursor pointer
@@ -358,18 +358,38 @@ img.loader
       color content-text-colour
 .side-board
   @extends .rounded
+  cursor default
   box-shadow .5em .5em 3em .1em shadow-colour
-  transition width ease-in-out 1s
   position absolute
   z-index 9999
   width 50vw
-  background-color rgba(#111, 0.5)
+  background-color rgba(content-background, 0.9)
   left 150%
+  &.active,&.inactive
+    transition all ease-in-out .5s
+  &.active
+    opacity 0
+  &.active-active
+    opacity 1
+  &.inactive
+    opacity 1
+  &.inactive-active
+    opacity 0
+
+.chat
+  width 66vh
+  background-color rgba(content-background, 0.9)
 
 .list
   @extends .rounded
   margin pad-s 0
   position relative
+  &.header
+    .attr
+      cursor default
+    .feature
+      transform rotate(-20deg)
+      color #800
   img
     width 1.5em
     opacity 0.7
@@ -381,10 +401,7 @@ img.loader
     cursor pointer
     vertical-align middle
     &.feature
-      // transform rotate(-20deg)
       font-size 3em
-      .yay2
-        font-size .5em
     &.beer
       width 5em
     &.name
@@ -421,12 +438,12 @@ img.loader
 
 .message
   padding pad-s
-  line-height 2em
+  line-height pad-s*3
   .attr
-    padding pad-t
+    padding pad-s
     @extends .rounded
   .name
-    background-color rgba(primary-3, 0.5)
+    background-color rgba(primary-4, 0.5)
   .message-content
     background-color rgba(#BBB, 0.2)
 

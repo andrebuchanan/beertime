@@ -12,9 +12,9 @@
     <div class="side-bar" ng-show="status.loaded">
       <ul>
         <li ng-init="showAdminPanel = false" ng-class="{active:showAdminPanel}" >
-          <div class="glyph" ng-click="showAdminPanel = !showAdminPanel">G</div>
-          <div class="side-board" ng-show="status.loaded && showAdminPanel">
-            <div class="heading bare">Beer Administration Panel</div>
+          <div class="glyph" ng-click="showChat = false; showAdminPanel = !showAdminPanel">G</div>
+          <div class="side-board" ng-show="status.loaded && showAdminPanel" ng-animate="{show:'active',hide:'inactive'}">
+            <div class="heading">Beer Administration Panel</div>
             <div class="content">
               <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
               <hr/>
@@ -27,8 +27,18 @@
             </div>
           </div>
         </li>
-        <li ng-init="showChat = true" ng-class="{active:showChat}">
-          <div class="glyph" ng-click="showChat = !showChat">b</div>
+        <li ng-init="showChat = false" ng-class="{active:showChat}">
+          <div class="glyph" ng-click="showAdminPanel = false; showChat = !showChat">b</div>
+          <div class="side-board chat content" ng-show="showChat" ng-animate="{show:'active',hide:'inactive'}">
+            <input type="text" ng-model="chat.name" placeholder="Your Name">
+            <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
+            <hr/>
+            <div class="message" ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
+              <span class="attr name forque">{{msg.name}}</span>
+              <span class="attr date">{{msg.date | date:'medium'}}</span>
+              <div class="attr message-content">{{msg.message}}</div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -43,6 +53,7 @@
       </div>
 
       <ul class="columns one">
+
         <li>
           <div class="digital-container">
             <span class="digital glyph">T</span>
@@ -59,11 +70,12 @@
         </li>
 
         <li>
-          <div class="list forque">
+          <div class="list header">
             <div class="attr"></div>
             <div class="attr name"></div>
-            <div class="attr">Going</div>
-            <div class="attr">Shots</div>
+            <div class="attr feature glyph">*<div class="yay2 forque">Going?!</div></div>
+            <div class="attr feature glyph">*<div class="yay2 forque">Shots!</div></div>
+            <div class="attr feature glyph">*<div class="yay2 forque">Beers</div></div>
           </div>
           <div class="list" ng-repeat="att in attendees | filter:{deleted:'false'} | orderBy:'name'">
             <div class="attr glyph comment-ind" ng-click="att.showCommentField = !att.showCommentField;" ng-class="{is:att.comment, isnot: !att.comment}">b</div>
@@ -86,17 +98,6 @@
               <div class="button" ng-click="att.showCommentField = false; update(att);">Save</div>
               <div class="button" ng-click="att.showCommentField = false;">Cancel</div>
             </div>
-          </div>
-        </li>
-
-        <li ng-show="showChat">
-          <input type="text" ng-model="chat.name" placeholder="Your Name">
-          <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
-          <hr/>
-          <div class="message" ng-repeat="msg in messages | limitTo:-5 | orderBy:'date':true">
-            <span class="attr name forque">{{msg.name}}</span>
-            <span class="attr date">{{msg.date | date:'medium'}}</span>
-            <div class="attr message-content">{{msg.message}}</div>
           </div>
         </li>
     </div>
