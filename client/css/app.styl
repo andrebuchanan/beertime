@@ -1,11 +1,5 @@
 //Fonts
 @font-face {
-    font-family: 'Radioland';
-    src: url('/fonts/RADIOLAND-webfont.eot'), url('/fonts/RADIOLAND-webfont.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
     font-family: 'heydings';
     src: url('/fonts/heydings_icons-webfont.eot'), url('/fonts/heydings_icons-webfont.ttf');
     font-weight: normal;
@@ -30,15 +24,17 @@ complement-3 = #57320D
 complement-4 = #8F5D2B
 complement-5 = #8F6336
 // Other colours.
-shadow-colour      = #222
-content-text-color = #222
-content-text-neutral = #999
-content-text-alt   = #EEE
-heading-background = complement-4
-content-background = white
-button-text-color  = content-text-color
-field-background   = #888
-field-text-color   = content-text-color
+shadow-colour        = #111
+content-text-colour  = #FFF
+content-text-alt     = #222
+heading-background   = transparent
+content-background   = #150A00
+button-text-colour   = content-text-colour
+button-text-alt      = content-text-alt
+field-background     = #888
+field-text-colour    = content-text-alt
+link-colour          = content-text-alt
+border-colour        = #333
 
 // Padding standards
 pad-l = 1em // Large
@@ -95,9 +91,9 @@ vertical-gradient(startColor, endColor)
   text-shadow 1px 1px 3px shadow-colour
 // Rounding.
 .rounded
-  border-radius 3px
+  border-radius 10px
 .top-rounded
-  border-radius 3px 3px 0 0
+  border-radius 10px 10px 0 0
 // Bevels.
 .bevel
   border-left 1px solid rgba(white, 0.25)
@@ -115,14 +111,11 @@ vertical-gradient(startColor, endColor)
   height 100%
   pointer-events none
   opacity 0.1
-.glyph
-  font-family 'heydings'
-  font-size 2em
 
 // Content panes and headings.
 .content-pane
   position relative
-  border 1px solid #EEE
+  border 1px solid border-colour
   overflow hidden
 .heading
   @extends .shadow-heading
@@ -130,9 +123,9 @@ vertical-gradient(startColor, endColor)
   position relative
   min-height 2em
   padding pad-s
-  color content-text-alt
+  color content-text-colour
   z-index 1
-  border-bottom 1px solid #222
+  border-bottom 1px solid border-colour
   &.bare
     margin-bottom 1em
   .buttons
@@ -148,7 +141,6 @@ vertical-gradient(startColor, endColor)
 .content
   position relative
   padding pad-l pad-s
-  color content-text-color
 
 .columns
   margin 0
@@ -212,7 +204,7 @@ body
   background-size cover
   // font-family Verdana,Geneva,'DejaVu Sans',sans-serif
   font-family Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif
-  color content-text-color
+  color content-text-colour
   padding pad-l
   font-size 1em
   margin auto
@@ -221,18 +213,17 @@ body
 a
   @extends .text-shadow
   text-decoration underline
-  color primary-4
+  color link-colour
   .button
     text-decoration none
 input[type=text],input[type=password],textarea
   @extends .rounded
-  border-radius 10px
   border none
   padding pad-s
   background-color field-background
-  color field-text-color
+  color field-text-colour
 hr
-  border-color #444
+  border-color border-colour
   margin pad-l 0
 
 // App overrides.
@@ -244,24 +235,24 @@ hr
   overflow visible
   &.noover
     overflow auto
-.content
-  color #BBB !important
 .button
   background-color rgba(primary-1, 0.66)
 .bevel
   box-shadow 0em 0em .1em .1em #444
-  border 1px solid #444
-  border-right-color #777
-  border-bottom-color #777
-.dark
-  background-color rgba(#222, 0.5)  !important
+  border 1px solid border-colour
+  border-right-color border-colour+40
+  border-bottom-color border-colour+40
 .spacer
   margin-top 2em
 
-// App General
+// App fonts
 .forque
   font-family 'forque'
+.glyph
+  font-family 'heydings'
+  font-size 2em
 
+// App General
 .feature
   display inline-block
   position relative
@@ -272,10 +263,10 @@ hr
     position absolute
     top 50%
     left 50%
-    color content-text-alt
     transform translate(-50%, -50%)
+    color content-text-colour
 
-// Specific structural elements.
+// App Specific structural elements.
 
 // Pre-js loader info
 .index-loader
@@ -304,13 +295,13 @@ img.loader
   box-shadow inset 0em 0em 10em 5em #111
   z-index -1
 .main
+  @extends .rounded
   width 80%
   margin auto
   background-image url('/img/bodybkg.png')
-  background-color rgba(#000, 0.9)
+  background-color rgba(content-background, 0.9)
   background-attachment fixed
   box-shadow 0em 0em 1em .25em #111
-  color content-text-alt
 .site-header
   padding pad-s
   position relative
@@ -341,45 +332,46 @@ img.loader
 .digital
   font-size 6em
   height 1.3em
-  text-shadow .1em .1em .1em #111
+  text-shadow 0em .1em .1em shadow-colour
   display inline-block
 
 .side-bar
+  @extends .transition
   position fixed
   left 0
-  color #444
+  color content-text-alt+20
   background-color #222
   top 20%
   z-index 9999
   ul
-    box-shadow .1em .1em 1em .1em #444
+    box-shadow .1em .1em 1em .1em shadow-colour+20
     padding 0
     margin 0
     list-style-type none
     &:hover
-      box-shadow .1em .1em 1em .1em #888
+      box-shadow .1em .1em 1em .1em shadow-colour+40
   li
     @extends .transition
     cursor pointer
     padding pad-s
-    border-bottom 1px solid #444
+    border-bottom 1px solid border-colour
+    text-shadow 0em .1em .1em shadow-colour
     &:hover,&.active
-      color #DDD
+      color content-text-colour
 .side-board
   @extends .rounded
-  box-shadow .5em .5em 1em .1em #111
+  box-shadow .5em .5em 3em .1em shadow-colour
   transition width ease-in-out 1s
   position absolute
   z-index 9999
   width 50vw
   background-color rgba(#111, 0.5)
-  left 100%
+  left 150%
 
 .list
   @extends .rounded
   margin pad-s 0
   position relative
-  color content-text-alt
   img
     width 1.5em
     opacity 0.7
@@ -411,7 +403,7 @@ img.loader
       background-color rgba(primary-5, 0.5)
       z-index 9999
       &.small
-        border-radius 6px
+        @extends .rounded
         display inline-block
         width auto
         padding pad-t pad-l
@@ -424,9 +416,9 @@ img.loader
     &.comment-ind
       vertical-align middle
     &.comment-ind.is
-      color #CCC
+      color content-text-colour
     &.comment-ind.isnot
-      color #777
+      color content-text-alt+40
 
 .message
   padding pad-s
