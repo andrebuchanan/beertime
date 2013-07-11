@@ -193,7 +193,7 @@ img.loader{margin:auto;margin-bottom:1em;max-width:80%;height:auto;display:block
 /* line 363 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 
 /* line 364 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-.side-bar li:hover .glyph,.side-bar li.active .glyph{color:#fff}
+.side-bar li:hover .glyph,.side-bar li.selected .glyph{color:#fff}
 
 /* line 366 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 

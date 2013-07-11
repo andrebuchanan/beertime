@@ -23,7 +23,8 @@ angular.module('arbapp.directives', []).
       }
     };
   }).
-  // Execute a function on enter keypress.
+  // Execute a function on enter keypress. This directive is working but is specific to chat.
+  // Fix it so that it works on any input element.
   directive("onenter", function()
   {
     return {
