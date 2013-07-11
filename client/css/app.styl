@@ -259,18 +259,23 @@ hr
 
 // App General
 .feature
+  padding 0
+  margin 0
   display inline-block
   position relative
   font-size 7em
   text-shadow 3px 3px 5px shadow-colour
   line-height 1em
   .yay2
+    padding 0
+    margin 0
     color content-text-colour
     position absolute
     font-size .55em
     top 50%
     left 50%
     transform translate(-51%, -50%)
+    height 2em
 
 // App Specific structural elements.
 
@@ -418,6 +423,7 @@ img.loader
       font-size 3em
     &.beer
       font-family beerglass
+      letter-spacing .1em
       font-size 2em
       color primary-4
       @extends .text-shadow
