@@ -8,9 +8,6 @@ angular.module('arbapp.directives', []).
   {
     return {
       restrict: "A",
-      // scope: {
-      //   numdrink: "@"
-      // },
       link: function(scope, element, attrs)
       {
         attrs.$observe("numdrink", function(newValue)
@@ -26,6 +23,7 @@ angular.module('arbapp.directives', []).
       }
     };
   }).
+  // Execute a function on enter keypress.
   directive("onenter", function()
   {
     return {
@@ -37,7 +35,7 @@ angular.module('arbapp.directives', []).
           if (event.which === 13)
           {
             if (scope.chat)
-              scope.$apply(attrs.onenter, scope.chat);
+            scope.$apply(attrs.onenter, scope.chat);
           }
         });
       }

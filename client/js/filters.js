@@ -5,6 +5,7 @@
 /* Filters */
 
 angular.module('arbapp.filters', []).
+  // Take number of seconds and convert to dhms output, or part thereof.
   filter("hms", function()
   {
     return function(input, portion) {
@@ -25,6 +26,7 @@ angular.module('arbapp.filters', []).
       return parts[portion] < 10 && parts[portion] >= 0 ? "0" + parts[portion] : parts[portion];
     };
   }).
+  // Return a different smiley face depending on input.
   filter("face", function()
   {
     return function(input)
@@ -38,6 +40,7 @@ angular.module('arbapp.filters', []).
       return "8-)";
     };
   }).
+  // Repurposed. Should be renamed. Return beerish word depending on bool input.
   filter("onoff", function()
   {
     return function(input)
@@ -45,6 +48,7 @@ angular.module('arbapp.filters', []).
       return input ? "yay" : "nay";
     };
   }).
+  // Like above, but returns a symbol / letter for use with glyph font.
   filter("symbol", function()
   {
     return function(input)
@@ -52,7 +56,7 @@ angular.module('arbapp.filters', []).
       return input ? "*" : "y";
     };
   }).
-  // Uppercase first letter;
+  // Uppercase first letter
   filter("fuppercase", function()
   {
     return function(text)
