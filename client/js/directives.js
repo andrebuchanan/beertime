@@ -18,7 +18,8 @@ angular.module('arbapp.directives', []).
           var output = "";
           for (var i = 0; i < attrs.numdrink; i++)
           {
-            output += "<img src='/img/beer-icon.png'>";
+            output += "b";
+            // output += "<img src='/img/beer-icon.png'>";
           }
           element.html(output);
         });

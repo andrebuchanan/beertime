@@ -11,6 +11,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+  font-family: 'beerglass';
+  src: url('data:application/x-font-ttf;charset=utf-8;base64,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') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 // Colour theme from colorschemedesigner.com, http://colorschemedesigner.com/#3o21Tptd7g0g0
 primary-1 = #0F3641
@@ -24,7 +30,7 @@ complement-3 = #57320D
 complement-4 = #8F5D2B
 complement-5 = #8F6336
 // Other colours.
-shadow-colour        = #111
+shadow-colour        = rgba(#000, 0.8)
 content-text-colour  = #FFF
 content-text-alt     = #222
 heading-background   = transparent
@@ -261,7 +267,7 @@ hr
   .yay2
     color content-text-colour
     position absolute
-    font-size .45em
+    font-size .55em
     top 50%
     left 50%
     transform translate(-51%, -50%)
@@ -355,30 +361,38 @@ img.loader
     border-bottom 1px solid border-colour
     text-shadow 0em .1em .1em shadow-colour
     &:hover,&.active
-      color content-text-colour
+      .glyph
+        color content-text-colour
+    &.unviewed
+      .glyph
+        color #800
 .side-board
   @extends .rounded
   cursor default
+  color content-text-colour
   box-shadow .5em .5em 3em .1em shadow-colour
   position absolute
   z-index 9999
   width 50vw
-  background-color rgba(content-background, 0.9)
+  background-color rgba(content-background, 0.95)
   left 150%
   &.active,&.inactive
     transition all ease-in-out .5s
   &.active
     opacity 0
+    transform scale(.25)
   &.active-active
     opacity 1
+    transform scale(1)
   &.inactive
     opacity 1
+    transform scale(1)
   &.inactive-active
     opacity 0
+    transform scale(.25)
 
 .chat
   width 66vh
-  background-color rgba(content-background, 0.9)
 
 .list
   @extends .rounded
@@ -391,8 +405,8 @@ img.loader
       transform rotate(-20deg)
       color #800
   img
-    width 1.5em
-    opacity 0.7
+    width 1.6em
+    opacity 0.99
   .attr
     @extends .transition
     display inline-block
@@ -403,7 +417,10 @@ img.loader
     &.feature
       font-size 3em
     &.beer
-      width 5em
+      font-family beerglass
+      font-size 2em
+      color primary-4
+      @extends .text-shadow
     &.name
       @extends .forque
       font-size 1.5em

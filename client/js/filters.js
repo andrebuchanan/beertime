@@ -42,8 +42,14 @@ angular.module('arbapp.filters', []).
   {
     return function(input)
     {
-      // return input ? "O" : "X";
       return input ? "yay" : "nay";
+    };
+  }).
+  filter("symbol", function()
+  {
+    return function(input)
+    {
+      return input ? "*" : "y";
     };
   }).
   // Uppercase first letter;

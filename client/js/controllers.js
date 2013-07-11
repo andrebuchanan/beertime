@@ -9,22 +9,10 @@ angular.module('arbapp.controllers', []).
   // App controller. Handle basic functions.
   controller("appCtrl", function($scope, $timeout, Att, events, topic, $window, Chat)
   {
+
     $scope.attendees = Att.query();
     $scope.dels = {};
-    $scope.showAttPanel = true;
-    $scope.msg = {
-      scroll: "scrolled"
-    };
-
-    $scope.scrollTimer = function()
-    {
-      $timeout(function()
-      {
-        $scope.msg.scroll = $scope.msg.scroll ? "" : "scrolled";
-        $scope.scrollTimer();
-      }, 1500);
-    };
-    $scope.scrollTimer();
+    $scope.viewedMessages = 0;
 
     $scope.update = function(att)
     {
@@ -107,6 +95,7 @@ angular.module('arbapp.controllers', []).
     {
       Chat.save(chat, function()
       {
+        $scope.viewedMessages = $scope.messages.length;
         $scope.chat.message = "";
       });
     };
@@ -114,6 +103,7 @@ angular.module('arbapp.controllers', []).
     topic.subscribe("evt/chat", function(message)
     {
       $scope.messages.push(message.chat);
+      if ($scope.showChat) $scope.viewedMessages = $scope.messages.length;
     });
   });
 })();
