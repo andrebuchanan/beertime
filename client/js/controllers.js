@@ -12,7 +12,8 @@ angular.module('arbapp.controllers', []).
 
     $scope.attendees = Att.query();
     $scope.dels = {};
-    $scope.viewedMessages = 0;
+    $scope.status = {};
+    $scope.status.viewedMessages = 0;
 
     $scope.update = function(att)
     {
@@ -42,6 +43,7 @@ angular.module('arbapp.controllers', []).
       $scope.delMessage = "You've deleted " + delme.name + ". Undo?";
     };
 
+    // XXX Neaten this please. Make eventHorizon scope var and selectable.
     var eventHorizon = new Date("Jul 12, 2013 16:00:00");
     $scope.beerDate = eventHorizon;
     $scope.beerClock = new Date();
@@ -95,15 +97,16 @@ angular.module('arbapp.controllers', []).
     {
       Chat.save(chat, function()
       {
-        $scope.viewedMessages = $scope.messages.length;
-        $scope.chat.message = "";
+        $scope.status.viewedMessages = $scope.messages.length;
+        chat.message = "";
       });
     };
 
+    // Subscribe to chat events. Update viewed message count only if messages panel is not displayed.
     topic.subscribe("evt/chat", function(message)
     {
       $scope.messages.push(message.chat);
-      if ($scope.showChat) $scope.viewedMessages = $scope.messages.length;
+      if ($scope.status.showChat) $scope.status.viewedMessages = $scope.messages.length;
     });
   });
 })();

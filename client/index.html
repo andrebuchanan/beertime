@@ -7,7 +7,7 @@
   </head>
   <body class="transition">
 
-    <div class="body-shadow"> </div>
+    <div ng-include="'partials/body-shadow.html'"></div>
 
     <div ng-include="'partials/side-bar.html'"></div>
 
@@ -15,7 +15,7 @@
 
     <!-- Show loader until status.loaded is init'd to true, at which point ng
       will do it's thing and make the loader go away -->
-    <div class="index-loader content-pane" ng-show="!status.loaded" ng-init="status.loaded=true;" ng-animate="{show:'show',hide:'hide'}">
+    <div class="index-loader content-pane" ng-show="!status.loaded" ng-init="status.loaded=true;">
       <div class="heading">Loading</div>
       <div class="content">
         <img class="loader" src="img/bar-loader.gif" alt="Loading...">

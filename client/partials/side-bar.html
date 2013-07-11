@@ -1,8 +1,8 @@
 <div class="side-bar" ng-cloak>
   <ul>
-    <li ng-init="showAdminPanel = false" ng-class="{selected:showAdminPanel}" >
-      <div class="glyph" ng-click="showChat = false; showAdminPanel = !showAdminPanel">G</div>
-      <div class="side-board" ng-show="showAdminPanel" ng-animate="{show:'active',hide:'inactive'}">
+    <li ng-init="status.showAdmin = false" ng-class="{selected:status.showAdmin}" >
+      <div class="glyph" ng-click="status.showChat = false; status.showAdmin = !status.showAdmin">G</div>
+      <div class="side-board" ng-show="status.showAdmin" ng-animate="{show:'active',hide:'inactive'}" ng-class="{'inactive-active':!status.showAdmin}">
         <div class="heading">Beer Administration Panel</div>
         <div class="content">
           <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
@@ -16,9 +16,9 @@
         </div>
       </div>
     </li>
-    <li ng-init="showChat = false" ng-class="{selected:showChat, unviewed:viewedMessages != messages.length}">
-      <div class="glyph" ng-click="showAdminPanel = false; showChat = !showChat; viewedMessages = messages.length">b</div>
-      <div class="side-board chat content" ng-show="showChat" ng-animate="{show:'active',hide:'inactive'}">
+    <li ng-init="status.showChat = false" ng-class="{selected:status.showChat, unviewed:status.viewedMessages != messages.length}">
+      <div class="glyph" ng-click="status.showAdmin = false; status.showChat = !status.showChat; status.viewedMessages = messages.length">b</div>
+      <div class="side-board chat content" ng-show="status.showChat" ng-animate="{show:'active',hide:'inactive'}" ng-class="{'inactive-active':!status.showChat}">
         <input type="text" ng-model="chat.name" placeholder="Your Name">
         <input type="text" ng-model="chat.message" placeholder="BeerChat" onEnter="sendMessage(chat)"> <div class="button" ng-click="sendMessage(chat)" ng-show="chat">Send</div>
         <hr/>
