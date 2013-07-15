@@ -1,6 +1,5 @@
 var httpSrv = require("./lib/ExpressHttp");
 var topic = require("./lib/pubsub");
-require("./lib/keys").monitor();
 
 httpSrv.start();
 console.log("Server is on PID ", process.pid)
