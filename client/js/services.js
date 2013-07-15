@@ -94,5 +94,13 @@ angular.module('arbapp.services', ["ngResource"]).
     var Chat = $resource("/chat/:name", {},{
     });
     return Chat;
+  }).
+  // App settings resource.
+  factory("App", function($resource)
+  {
+    var App = $resource("/appset/:setting", {}, {
+
+    });
+    return App;
   });
 })();

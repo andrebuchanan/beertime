@@ -1,295 +1,298 @@
 
 /* line 1 : /home/abuchanan/node_modules/stylus/lib/functions/index.styl */
 
-/* line 2 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 1 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+@import "/lib/vendor/jquery/css/ui-darkness/jquery-ui-1.10.3.custom.min.css";
+
+/* line 4 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 @font-face{font-family:'heydings';src:url("/fonts/heydings_icons-webfont.eot"),url("/fonts/heydings_icons-webfont.ttf");font-weight:normal;font-style:normal}
 
-/* line 8 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 10 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 @font-face{font-family:'forque';src:url("/fonts/Forque-webfont.eot"),url("/fonts/Forque-webfont.ttf");font-weight:normal;font-style:normal}
 
-/* line 14 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 16 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 @font-face{font-family:'beerglass';src:url("data:application/x-font-ttf;charset=utf-8;base64,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") format('truetype');font-weight:normal;font-style:normal}
 
-/* line 87 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 89 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .background-gradient{background-color:#0f3641;background:-webkit-gradient(linear,left top,left bottom,from(#0f3641),to(#2d6271));background:-webkit-linear-gradient(top,#0f3641,#2d6271);background:-moz-linear-gradient(top,#0f3641,#2d6271);background:-ms-linear-gradient(top,#0f3641,#2d6271);background:-o-linear-gradient(top,#0f3641,#2d6271)}
 
-/* line 90 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 92 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .shadow,.popup,.index-loader,.list .attr.comment{-moz-box-shadow:0 1px 10px -1px rgba(0,0,0,0.8);-webkit-box-shadow:0 1px 10px -1px rgba(0,0,0,0.8);box-shadow:0 1px 10px -1px rgba(0,0,0,0.8)}
 
-/* line 92 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 94 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .shadow-small,.button{-moz-box-shadow:0 1px 6px -1px rgba(0,0,0,0.8);-webkit-box-shadow:0 1px 6px -1px rgba(0,0,0,0.8);box-shadow:0 1px 6px -1px rgba(0,0,0,0.8)}
 
-/* line 94 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 96 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .shadow-heading,.heading{-moz-box-shadow:0 3px 6px -2px rgba(0,0,0,0.8);-webkit-box-shadow:0 3px 6px -2px rgba(0,0,0,0.8);box-shadow:0 3px 6px -2px rgba(0,0,0,0.8)}
 
-/* line 96 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 98 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .text-shadow,a,.list .attr.beer{text-shadow:1px 1px 3px rgba(0,0,0,0.8)}
 
-/* line 99 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 101 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .rounded,.decoration,.button,.popup,input[type=text],input[type=password],textarea,.index-loader,.main,.side-board,.list,.list .attr.comment,.message .attr{-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
 
-/* line 101 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 103 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .top-rounded{-webkit-border-radius:10px 10px 0 0;-moz-border-radius:10px 10px 0 0;border-radius:10px 10px 0 0}
 
-/* line 104 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 106 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .bevel{border-left:1px solid rgba(255,255,255,0.25);border-top:1px solid rgba(255,255,255,0.25);border-right:1px solid rgba(0,0,0,0.25);border-bottom:1px solid rgba(0,0,0,0.25)}
 
-/* line 109 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 111 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .transition,.button,.side-bar,.side-bar li,.list .attr{-webkit-transition:all ease-in-out .3s;-moz-transition:all ease-in-out .3s;-ms-transition:all ease-in-out .3s;-o-transition:all ease-in-out .3s;transition:all ease-in-out .3s}
 
-/* line 111 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 113 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .decoration{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.1}
 
-/* line 122 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 124 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .content-pane{position:relative;border:1px solid #333;overflow:hidden}
 
-/* line 126 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 128 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .heading{overflow:hidden;position:relative;min-height:2em;padding:.5em;color:#fff;z-index:1;border-bottom:1px solid #333;}
 
-/* line 135 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 137 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .heading.bare{margin-bottom:1em}
 
-/* line 137 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 139 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .heading .buttons{position:absolute;right:.25em;top:.25em;}
 
-/* line 141 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 143 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .heading .buttons .button{padding:.25em;}
 
-/* line 143 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 145 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .heading .buttons .button.glyph{font-size:1em;position:relative;top:-.5em}
 
-/* line 147 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 149 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .content{position:relative;padding:1em .5em}
 
-/* line 151 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 153 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .columns{margin:0;padding:0;text-align:justify;list-style-type:none;}
 
-/* line 156 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 158 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .columns > li{text-align:left;display:inline-block;width:49%;position:relative;vertical-align:top;padding:.5em;}
 
-/* line 163 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 165 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .columns > li .buttons{margin:.5em 0}
 
-/* line 165 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 167 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .columns.one > li{width:100%}
 
-/* line 167 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 169 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .columns.two > li{width:49%}
 
-/* line 169 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 171 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .columns:after{content:'';width:100%;display:inline-block}
 
-/* line 174 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 176 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .button{padding:.5em;display:inline-block;position:relative;}
 
-/* line 181 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 183 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .button:hover{background-image:none;background-color:#256071;color:#222;text-shadow:none;cursor:pointer}
 
-/* line 187 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 189 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 
-/* line 188 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 190 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .buttons .button{margin:0 .25em}
 
-/* line 192 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 194 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .popup,.index-loader{position:absolute;background-color:rgba(21,10,0,0.75);top:50%;left:50%;width:33%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:9999}
 
-/* line 206 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-
-/* line 207 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-html *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+/* line 208 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 
 /* line 209 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+html *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+
+/* line 211 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 body{background-image:url("/img/beer.jpg");background-attachment:fixed;background-size:cover;font-family:Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;color:#fff;padding:1em;font-size:1em;margin:auto;}
 
-/* line 219 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 221 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 body.fluid{width:80%}
 
-/* line 221 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 223 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 a{text-decoration:underline;color:#222;}
 
-/* line 225 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 227 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 a .button{text-decoration:none}
 
-/* line 227 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 229 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 input[type=text],input[type=password],textarea{border:none;padding:.5em;background-color:#888;color:#222}
 
-/* line 233 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 235 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 hr{border-color:#333;margin:1em 0}
 
-/* line 238 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 240 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .heading{font-size:1.2em;font-family:'forque'}
 
-/* line 241 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 243 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .content-pane{border:0}
 
-/* line 243 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 245 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .button{background-color:rgba(15,54,65,0.66)}
 
-/* line 245 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 247 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .bevel{-moz-box-shadow:0 0 .1em .1em rgba(0,0,0,0.8);-webkit-box-shadow:0 0 .1em .1em rgba(0,0,0,0.8);box-shadow:0 0 .1em .1em rgba(0,0,0,0.8);border:1px solid #333;border-right-color:#5b5b5b;border-bottom-color:#5b5b5b}
 
-/* line 250 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 252 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .spacer{margin-top:2em}
 
-/* line 254 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 256 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .forque,.list .attr.name{font-family:'forque'}
 
-/* line 256 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 258 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .glyph{font-family:'heydings';font-size:2em}
 
-/* line 261 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 263 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .feature{padding:0;margin:0;display:inline-block;position:relative;font-size:7em;text-shadow:3px 3px 5px rgba(0,0,0,0.8);line-height:1em;}
 
-/* line 269 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 271 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .feature .yay2{padding:0;margin:0;color:#fff;position:absolute;font-size:.55em;top:50%;left:50%;-webkit-transform:translate(-51%,-50%);-moz-transform:translate(-51%,-50%);-ms-transform:translate(-51%,-50%);-o-transform:translate(-51%,-50%);transform:translate(-51%,-50%);height:2em}
 
-/* line 283 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-
 /* line 285 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+
+/* line 287 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .index-loader .content{text-align:center}
 
-/* line 289 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 291 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 img.loader{margin:auto;margin-bottom:1em;max-width:80%;height:auto;display:block}
 
-/* line 296 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 298 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .heading.error{background-color:rgba(255,0,0,0.5)}
 
-/* line 300 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 302 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .body-shadow{position:fixed;top:0;left:0;width:100%;height:100%;-moz-box-shadow:inset 0 0 10em 5em #150a00;-webkit-box-shadow:inset 0 0 10em 5em #150a00;box-shadow:inset 0 0 10em 5em #150a00;z-index:-1}
 
-/* line 308 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 310 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .main{width:80%;margin:auto;background-image:url("/img/bodybkg.png");background-color:rgba(21,10,0,0.9);background-attachment:fixed;-moz-box-shadow:0 0 1em .25em rgba(0,0,0,0.8);-webkit-box-shadow:0 0 1em .25em rgba(0,0,0,0.8);box-shadow:0 0 1em .25em rgba(0,0,0,0.8)}
 
-/* line 316 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 318 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .site-header{padding:.5em;position:relative;margin-bottom:1em;text-align:center;}
 
-/* line 321 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 323 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .site-header .text-shadow{text-shadow:0 .5em .5em rgba(0,0,0,0.8)}
 
-/* line 323 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 325 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .site-header .title{font-size:10em;height:1.2em;display:inline-block;position:relative;text-shadow:0 .05em .1em rgba(0,0,0,0.8)}
 
-/* line 329 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 331 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .site-header .feature{position:absolute;right:-.7em;top:0;font-size:.7em;-webkit-transform:rotate(-20deg);-moz-transform:rotate(-20deg);-ms-transform:rotate(-20deg);-o-transform:rotate(-20deg);transform:rotate(-20deg);color:#800}
 
-/* line 337 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 339 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .digital-container{text-align:center;top:0;font-family:'forque'}
 
-/* line 341 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 343 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .digital{font-size:6em;height:1.3em;text-shadow:0 .1em .1em rgba(0,0,0,0.8);display:inline-block}
 
-/* line 347 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 349 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-bar{position:fixed;left:0;color:#363636;background-color:#222;top:20%;z-index:9999;}
 
-/* line 355 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 357 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-bar ul{-moz-box-shadow:.1em .1em 1em .1em rgba(20,20,20,0.8);-webkit-box-shadow:.1em .1em 1em .1em rgba(20,20,20,0.8);box-shadow:.1em .1em 1em .1em rgba(20,20,20,0.8);padding:0;margin:0;list-style-type:none;}
 
-/* line 360 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 362 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-bar ul:hover{-moz-box-shadow:.1em .1em 1em .1em rgba(40,40,40,0.8);-webkit-box-shadow:.1em .1em 1em .1em rgba(40,40,40,0.8);box-shadow:.1em .1em 1em .1em rgba(40,40,40,0.8)}
 
-/* line 362 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 364 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-bar li{cursor:pointer;padding:.5em;border-bottom:1px solid #333;text-shadow:0 .1em .1em rgba(0,0,0,0.8);}
 
-/* line 368 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-
-/* line 369 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-.side-bar li:hover .glyph,.side-bar li.selected .glyph{color:#fff}
+/* line 370 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 
 /* line 371 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+.side-bar li:hover .glyph,.side-bar li.selected .glyph{color:#fff}
 
-/* line 372 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-.side-bar li.unviewed .glyph{color:#800}
+/* line 373 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 
 /* line 374 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+.side-bar li.unviewed .glyph{color:#800}
+
+/* line 376 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-board{cursor:default;color:#fff;-moz-box-shadow:.5em .5em 3em .1em rgba(0,0,0,0.8);-webkit-box-shadow:.5em .5em 3em .1em rgba(0,0,0,0.8);box-shadow:.5em .5em 3em .1em rgba(0,0,0,0.8);position:absolute;z-index:9999;width:50vw;background-color:rgba(21,10,0,0.95);left:150%;}
 
-/* line 384 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 386 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-board.active,.side-board.inactive{-webkit-transition:all ease-in-out .5s;-moz-transition:all ease-in-out .5s;-ms-transition:all ease-in-out .5s;-o-transition:all ease-in-out .5s;transition:all ease-in-out .5s}
 
-/* line 386 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 388 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-board.active{opacity:0;-webkit-transform:scale(.25);-moz-transform:scale(.25);-ms-transform:scale(.25);-o-transform:scale(.25);transform:scale(.25)}
 
-/* line 389 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 391 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-board.active-active{opacity:1;-webkit-transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1)}
 
-/* line 392 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 394 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-board.inactive{opacity:1;-webkit-transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1)}
 
-/* line 395 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 397 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .side-board.inactive-active{opacity:0;-webkit-transform:scale(.25);-moz-transform:scale(.25);-ms-transform:scale(.25);-o-transform:scale(.25);transform:scale(.25)}
 
-/* line 399 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 401 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .chat{width:66vh}
 
-/* line 402 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 404 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list{margin:.5em 0;position:relative;}
 
-/* line 406 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-
-/* line 407 : /home/abuchanan/playpen/beertime/client/css/app.styl */
-.list.header .attr{cursor:default}
+/* line 408 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 
 /* line 409 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+.list.header .attr{cursor:default}
+
+/* line 411 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list.header .feature{-webkit-transform:rotate(-20deg);-moz-transform:rotate(-20deg);-ms-transform:rotate(-20deg);-o-transform:rotate(-20deg);transform:rotate(-20deg);color:#800}
 
-/* line 412 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 414 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list img{width:1.6em;opacity:.99}
 
-/* line 415 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 417 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr{display:inline-block;width:10%;text-align:center;cursor:pointer;vertical-align:middle;}
 
-/* line 422 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 424 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.feature{font-size:3em}
 
-/* line 424 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 426 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.beer{font-family:beerglass;letter-spacing:.1em;font-size:2em;color:#256071;}
 
-/* line 430 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 432 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.name{font-size:1.5em;width:50%;text-align:left;}
 
-/* line 435 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 437 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.name .comment{font-family:Constantia;font-size:.75em;height:1em}
 
-/* line 439 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 441 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.comment{text-align:left;width:80%;padding:1em;display:block;position:absolute;background-color:rgba(21,10,0,0.75);z-index:9999;}
 
-/* line 449 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 451 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.comment input{width:70%}
 
-/* line 451 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 453 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.yes{color:rgba(136,0,0,0.9)}
 
-/* line 453 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 455 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.no{color:#256071}
 
-/* line 455 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 457 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.comment-ind{vertical-align:middle}
 
-/* line 457 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 459 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.comment-ind.is{color:#fff}
 
-/* line 459 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 461 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .list .attr.comment-ind.isnot{color:#4a4a4a}
 
-/* line 462 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 464 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .message{padding:.5em;line-height:1.5em;}
 
-/* line 465 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 467 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .message .attr{padding:.5em;}
 
-/* line 468 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 470 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .message .name{background-color:rgba(37,96,113,0.5)}
 
-/* line 470 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 472 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 .message .message-content{background-color:rgba(187,187,187,0.2)}
 
-/* line 475 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 477 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 @media (max-width: 1000px){
-/* line 476 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 478 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 body{font-size:.75em}
 }
-/* line 478 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 480 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 @media (max-width: 500px){
-/* line 479 : /home/abuchanan/playpen/beertime/client/css/app.styl */
+/* line 481 : /home/abuchanan/playpen/beertime/client/css/app.styl */
 body{font-size:.66em}
 }

@@ -7,13 +7,50 @@
 angular.module('arbapp.controllers', []).
   //
   // App controller. Handle basic functions.
-  controller("appCtrl", function($scope, $timeout, Att, events, topic, $window, Chat)
+  controller("appCtrl", function($scope, $timeout, events, topic, $window, Att, Chat, App)
   {
 
     $scope.attendees = Att.query();
     $scope.dels = {};
     $scope.status = {};
     $scope.status.viewedMessages = 0;
+
+    // XXX Neaten this please. Make eventHorizon scope var and selectable.
+    App.get({ setting: "beerTime" }, function(settingObj)
+    {
+      $scope.beerTime = new Date(settingObj.value);
+      $scope.go();
+    });
+    $scope.beerClock = new Date();
+    $scope.go = function()
+    {
+      var now = new Date();
+      var diff = $scope.beerTime.getTime() - now.getTime();
+      $scope.beerClock = Math.floor(diff / 1000);
+      $timeout(function()
+      {
+        $scope.go();
+      }, 1000);
+    };
+
+    $scope.showDatePicker = function()
+    {
+      // Attempt to set up date picker.
+      jQuery("#beerTime").datepicker();
+      jQuery("#beerTime").datepicker("option", "onSelect", function(newDate)
+      {
+        $scope.status.beerTimeText = newDate;
+      });
+      jQuery("#beerTime").datepicker("show");
+    };
+
+    $scope.saveBeerTime = function(beerTimeText)
+    {
+      var beerTime = new Date(beerTimeText + " 16:00:00");
+      console.log(beerTime);
+      $scope.beerTime = beerTime;
+      App.save({ setting: "beerTime", value: beerTime });
+    };
 
     $scope.update = function(att)
     {
@@ -42,22 +79,6 @@ angular.module('arbapp.controllers', []).
       Att.delete(delme);
       $scope.delMessage = "You've deleted " + delme.name + ". Undo?";
     };
-
-    // XXX Neaten this please. Make eventHorizon scope var and selectable.
-    var eventHorizon = new Date("Jul 12, 2013 16:00:00");
-    $scope.beerDate = eventHorizon;
-    $scope.beerClock = new Date();
-    $scope.go = function()
-    {
-      var now = new Date();
-      var diff = eventHorizon.getTime() - now.getTime();
-      $scope.beerClock = Math.floor(diff / 1000);
-      $timeout(function()
-      {
-        $scope.go();
-      }, 1000);
-    };
-    $scope.go();
 
     $scope.updateList = function(attToFind)
     {

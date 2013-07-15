@@ -5,6 +5,8 @@
       <div class="side-board" ng-show="status.showAdmin" ng-animate="{show:'active',hide:'inactive'}" ng-class="{'inactive-active':!status.showAdmin}">
         <div class="heading">Beer Administration Panel</div>
         <div class="content">
+          <input type="text" id="beerTime" ng-click="showDatePicker()"><div class="button" ng-click="saveBeerTime(status.beerTimeText)">Save</div>
+          <hr/>
           <input type="text" ng-model="newatt.name" placeholder="Name > 1 character"> <div class="button" ng-click="add(newatt)" ng-show="newatt.name.length > 1">Add Alcoholic</div>
           <hr/>
           <input type="text" ng-model="delguy.name" placeholder="Type Name to Remove"> <div class="button" ng-click="del(delguy)" ng-show="delguy">Remove</div>
