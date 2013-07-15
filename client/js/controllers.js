@@ -18,14 +18,15 @@ angular.module('arbapp.controllers', []).
     // XXX Neaten this please. Make eventHorizon scope var and selectable.
     App.get({ setting: "beerTime" }, function(settingObj)
     {
-      $scope.beerTime = new Date(settingObj.value);
+      settingObj.value = settingObj.value || new Date();
+      $scope.status.beerTime = new Date(settingObj.value);
       $scope.go();
     });
     $scope.beerClock = new Date();
     $scope.go = function()
     {
       var now = new Date();
-      var diff = $scope.beerTime.getTime() - now.getTime();
+      var diff = $scope.status.beerTime.getTime() - now.getTime();
       $scope.beerClock = Math.floor(diff / 1000);
       $timeout(function()
       {
@@ -47,10 +48,13 @@ angular.module('arbapp.controllers', []).
     $scope.saveBeerTime = function(beerTimeText)
     {
       var beerTime = new Date(beerTimeText + " 16:00:00");
-      console.log(beerTime);
-      $scope.beerTime = beerTime;
       App.save({ setting: "beerTime", value: beerTime });
     };
+
+    topic.subscribe("evt/beertime", function(message)
+    {
+      $scope.status.beerTime = new Date(message.beerTime);
+    });
 
     $scope.update = function(att)
     {
